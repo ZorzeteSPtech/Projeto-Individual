@@ -1,0 +1,36 @@
+body{
+
+    background: #090919;
+    color: white;
+
+}
+
+.banner{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+}
+
+.introducao video{
+
+    display: flex;
+    justify-self: center;
+
+}
+
+.introducao-plataforma p{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.introducao{
+
+    margin-bottom: 80px;
+
+}
+

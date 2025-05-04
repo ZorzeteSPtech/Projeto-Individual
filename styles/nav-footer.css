@@ -1,0 +1,90 @@
+body{
+
+    margin:0px;
+    padding:0px;
+
+}
+
+.nav{
+
+    background: #222A5A;
+
+}
+
+.nav .nav-menu .nav-menu-link{
+
+    display: flex;
+    align-items: center;
+    
+}
+
+.nav .nav-menu{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.nav .nav-menu ul{
+
+    list-style-type: none;
+
+}
+
+.nav .nav-menu ul li a{
+
+    text-decoration: none;
+    color: white;
+    margin-right: 15px;
+
+}
+
+.nav .nav-menu img{
+
+    width: 80px;
+
+}
+
+footer{
+
+    background: #222A5A;
+
+}
+
+.rodape{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin: 0px 10px 0px 10px;
+    padding-bottom: 2%;
+
+}
+
+.rodape a{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+.rodape ul li{
+
+    list-style-type: none;
+
+}
+
+.rodape-endereco img{
+
+    display: flex;
+    width: 80px;
+    justify-self: center;
+
+}
+
+.rodape-endereco p{
+
+    justify-self: center;
+
+}
