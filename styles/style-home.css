@@ -21,7 +21,17 @@ body{
 
 }
 
-.introducao-plataforma p{
+.introducao-plataforma ul li{
+
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin-right: 30px;
+    margin-left: 10px;
+
+}
+
+.introducao-plataforma ul{
 
     display: flex;
     justify-content: center;
@@ -34,3 +44,36 @@ body{
 
 }
 
+.resumo{
+
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.resumo img{
+
+    width: 35rem;
+    height: 45rem;
+
+}
+
+.personagens{
+
+    display: flex;
+
+}
+
+.personagem .personagens-imgens{
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.personagens img{
+
+    width: 20rem;
+    height: 30rem;
+
+}
