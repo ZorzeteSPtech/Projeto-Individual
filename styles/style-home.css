@@ -10,6 +10,7 @@ main{
     background: #404A89;
     margin: 0 15rem 0 15rem;
     border-radius: 10px;
+    padding: 4rem;
 
 }
 
@@ -63,6 +64,12 @@ main{
 
     display: flex;
     justify-content: space-around;
+
+}
+
+.resumo p{
+
+    font-size: 2rem;
 
 }
 
