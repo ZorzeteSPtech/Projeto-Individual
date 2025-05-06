@@ -5,12 +5,27 @@ body{
 
 }
 
+main{
+
+    background: #404A89;
+    margin: 0 15rem 0 15rem;
+    border-radius: 10px;
+
+}
+
 .banner{
 
     display: flex;
     justify-content: center;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    background: #090919;
+
+
+}
+
+.banner img{
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 
 }
 
@@ -53,21 +68,32 @@ body{
 
 .resumo img{
 
-    width: 35rem;
-    height: 45rem;
+    width: 25rem;
+    height: 35rem;
 
 }
 
 .personagens{
 
     display: flex;
+    flex-direction: column;
 
 }
 
-.personagem .personagens-imgens{
+.personagens .personagens-imagens{
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-bottom: 5rem;
+
+}
+
+.personagens-imagens .imagens-personagem{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -75,5 +101,24 @@ body{
 
     width: 20rem;
     height: 30rem;
+
+}
+
+.comentarios{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+
+}
+
+.comentarios .comentarios-card{
+
+    background-color: antiquewhite;
+    flex-direction: row;
+    width: 20rem;
+    height: 7rem;
+    margin-bottom: 5rem;
 
 }
