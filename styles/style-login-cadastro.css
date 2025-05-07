@@ -1,0 +1,76 @@
+#container{
+
+    width: 50rem;
+    margin: 40px auto;
+    box-shadow: 0 0 4px #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+#login, #cadstro{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+
+}
+
+.geral-40{
+
+    width: 40%;
+    padding: 20px 40px;
+
+}
+
+.geral-60{
+
+    width: 60%;
+    padding: 40px 20px;
+
+}
+
+.form-geral{
+
+    text-align: center;
+
+}
+
+.form-geral input{
+
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px #333;
+    padding: 5px 0;
+    margin-bottom: 20px;
+
+}
+
+.form-geral button{
+
+    width: 100%;
+    border: solid 1px #333;
+    background: #fff;
+    padding: 10px;
+    border-radius: 200px;
+    cursor:pointer;
+
+}
+
+.form-geral p{
+
+    font-size: 12px;
+    text-align: center;
+
+}
+
+#cadastro:not(:target), #login:not(:target){
+
+    opacity: 0;
+    z-index: -2;
+
+}

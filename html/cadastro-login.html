@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessar / Cadastrar</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/style-login-cadastro.css">
+</head>
+<body>
+    <main>
+        <div id="container">
+            <div id="cadastro">
+                <div class="geral-40 text-cadastro">
+                    <h2>Cadastre-se!</h2>
+                    <h4>Complete seu cadastro preenchendo o formulário:</h4>
+                </div>
+                <div class="geral-60 form-geral">
+                    <h3>Cadastro</h3>
+                    <form class="form-geral">
+                        <input type="text" name="nome" placeholder="Seu Nome" required>
+                        <input type="text" name="telefone" placeholder="Seu Telefone" required>
+                        <input type="email" name="email" placeholder="Seu Telefone" required>
+                        <input type="password" name="senha" placeholder="Crie uma senha" required>
+                        <button name="logar">Cadastrar</button>
+                        <p>
+        
+                            Já tem cdastro ainda?
+                            <a href="#login">Acesse clicando aqui</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div id="login">
+                <div class="geral-40 text-geral">
+                    <h2>Bem vindo!</h2>
+                    <h4>Informe seu usuário e senha:</h4>
+                </div>
+                <div class="geral-60 form-geral">
+                    <h3>Login</h3>
+                    <form class="form-geral">
+                        <input type="email" name="email" placeholder="Seu E-mail" required>
+                        <input type="password" name="senha" placeholder="Sua Senha" required>
+                        <button name="logar">Acessar</button>
+                        <p>
+        
+                            Não tem cdastro ainda?
+                            <a href="#cadastro">Cadastre-se aqui</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="mascara"></div>
+        </div>
+    </main>
+</body>
+</html>

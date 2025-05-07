@@ -75,8 +75,9 @@ main{
 
 .resumo img{
 
-    width: 25rem;
-    height: 35rem;
+    max-width: 75%;
+    height: 30rem;
+    display: block;
 
 }
 
@@ -106,8 +107,9 @@ main{
 
 .personagens img{
 
-    width: 20rem;
+    max-width: 80%;
     height: 30rem;
+    display: block;
 
 }
 
@@ -115,17 +117,23 @@ main{
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 
 }
 
-.comentarios .comentarios-card{
+.comentarios .comentarios-principal{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.comentarios .principal-card{
 
     background-color: antiquewhite;
-    flex-direction: row;
     width: 20rem;
     height: 7rem;
-    margin-bottom: 5rem;
 
 }
+

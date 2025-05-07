@@ -1,7 +1,13 @@
+@font-face {
+    font-family: 'TrajanPro';
+    src: url(../../Fontes/Trajan-Pro-Regular/Trajan-Pro-Regular.ttf) format('truetype');
+}
+
 body{
 
     margin:0px;
     padding:0px;
+    font-family: 'TrajanPro', serif;
 
 }
 
