@@ -20,7 +20,7 @@
     width: 100%;
     position: absolute;
     top: 0; left: 0;
-    transition: all 2s ease;
+    transition: all 1s ease;
 
 }
 
@@ -62,7 +62,7 @@
     background: #fff;
     padding: 10px;
     border-radius: 200px;
-    cursor:pointer;
+    cursor: pointer;
 
 }
 
@@ -96,24 +96,22 @@
     left: -60%;
     z-index: -1;
     transform: skewX(-40deg);
-    transition: all 1s 1s ease;
+    transition: all 0.5s 1s ease;
 
 }
 
-#login{
+/* #login{
 
     opacity: 1;
     z-index: 1;
-    pointer-events: all;
 
-}
+} */
 
 #cadastro:target, #login:target{
 
     opacity: 1;
     z-index: 1;
-    transition: all 1s 2s ease;
-    pointer-events: all;
+    transition: all 0.5s 1s ease;
 
 }
 
@@ -129,6 +127,5 @@
 
     opacity: 0;
     z-index: -2;
-    pointer-events: none;
 
 }
