@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'TrajanPro';
-    src: url(../../Fontes/Trajan-Pro-Regular/Trajan-Pro-Regular.ttf) format('truetype');
+    src: url(../assets/fontes/Trajan-Pro-Regular/Trajan-Pro-Regular.ttf) format('truetype');
 }
 
 body{
