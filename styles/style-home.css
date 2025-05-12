@@ -5,15 +5,6 @@ body{
 
 }
 
-main{
-
-    background: #404A89;
-    margin: 0 15rem 0 15rem;
-    border-radius: 10px;
-    padding: 4rem;
-
-}
-
 .banner{
 
     display: flex;

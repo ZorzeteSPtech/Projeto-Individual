@@ -11,9 +11,19 @@ body{
 
 }
 
+main{
+
+    background: #404A89;
+    margin: 0 15rem 0 15rem;
+    border-radius: 10px;
+    padding: 4rem;
+
+}
+
 .nav{
 
     background: #222A5A;
+    margin-bottom: 2rem;
 
 }
 

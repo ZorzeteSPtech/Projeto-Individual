@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+body {
+  background: #090919;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: 50rem;
+  margin: 40px auto;
+  padding: 20px;
+  min-height: 24rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.fundo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.fundo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fundo-blur {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.tela {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+}
+
+.tela:target {
+  opacity: 1;
+  z-index: 3;
+}
+
+.container-botoes h3 {
+  background: white;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+
+    </style>
+</head>
+    <body>
+  <div class="tela" id="home">
+    <h1>Página Inicial</h1>
+    <a href="#blur">Ir para tela com blur</a>
+    <a href="#transicao">Ir para tela com transição</a>
+  </div>
+
+  <div class="tela" id="blur">
+    <div class="fundo-blur"></div>
+    <div class="conteudo">
+      <h2>Fundo com Blur</h2>
+      <a href="#home">Voltar</a>
+    </div>
+  </div>
+
+  <div class="tela" id="transicao">
+    <h2>Tela com Transição</h2>
+    <a href="#home">Voltar</a>
+  </div>
+</body>
+</html>
