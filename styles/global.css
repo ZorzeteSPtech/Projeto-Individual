@@ -8,6 +8,9 @@ body{
     margin:0px;
     padding:0px;
     font-family: 'TrajanPro', serif;
+    background: #090919;
+    color: white;
+
 
 }
 
@@ -24,6 +27,8 @@ main{
 
     background: #222A5A;
     margin-bottom: 2rem;
+    width: 100%;
+    position: fixed;
 
 }
 

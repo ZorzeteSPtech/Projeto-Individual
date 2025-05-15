@@ -1,0 +1,58 @@
+.sumario{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.sumario h2{
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+    margin-top: 10rem;
+    font-size: 3rem;
+
+}
+
+.sumario img{
+
+    width: 65%;
+    margin-bottom: 10rem;
+    
+}
+
+.reino-card{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.reino-card img{
+
+    width: 35%;
+    margin: 20px;
+
+}
+
+.card-abaixo{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+h2{
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    font-size: 3rem;
+
+}

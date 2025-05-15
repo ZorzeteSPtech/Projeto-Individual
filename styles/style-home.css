@@ -1,10 +1,3 @@
-body{
-
-    background: #090919;
-    color: white;
-
-}
-
 .banner{
 
     display: flex;
@@ -54,20 +47,28 @@ body{
 .resumo{
 
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
 
 }
 
 .resumo p{
 
-    font-size: 2rem;
+    font-size: 1.5rem;
+
+}
+
+.resumo-partes{
+
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
 
 }
 
 .resumo img{
 
-    max-width: 75%;
-    height: 30rem;
+    max-width: 50%;
     display: block;
 
 }
@@ -99,7 +100,7 @@ body{
 .personagens img{
 
     max-width: 80%;
-    height: 30rem;
+    height: 22rem;
     display: block;
 
 }
@@ -123,8 +124,8 @@ body{
 .comentarios .principal-card{
 
     background-color: antiquewhite;
-    width: 20rem;
-    height: 7rem;
+    width: 15rem;
+    height: 5rem;
 
 }
 
