@@ -3,6 +3,23 @@ main{
     display: flex;
     justify-self: center;
 
+    background-image: url("https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg=");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position:relative;
+    border-radius: 25px;
+
+}
+
+h2{
+
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+    font-size: 5rem;
+    font-weight: 100;
+
 }
 
 .container{
@@ -17,6 +34,14 @@ main{
 
 }
 
+.container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .container .container-botoes, .tela{
 
     display: flex;
@@ -28,6 +53,7 @@ main{
 
 .tela:not(:target){
 
+    position: absolute;
     opacity: 0;
     z-index: -2;
     cursor: default;
@@ -50,6 +76,7 @@ main{
 
 }
 
+
 a{
 
     color:black;
@@ -57,14 +84,16 @@ a{
     
 }
 
-.fundo-blur {
+.blur {
 
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 0;
+    position:absolute;
+    width: 100%; height: 100%;
+    top:0; left:0;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    /* background-position: center;
+    background-size: cover; */
 
 }
 

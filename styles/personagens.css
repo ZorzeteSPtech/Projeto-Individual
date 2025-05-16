@@ -1,11 +1,96 @@
+h2{
+
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+    font-size: 5rem;
+    font-weight: 100;
+
+}
+
 .principal img{
 
     width:40%;
 
 }
 
-.principal-personagens{
+.principal-protagonistas{
 
     display: flex;
+
+}
+
+.principal-protagonistas img{
+
+    height: 13rem;
+
+}
+
+.principal-protagonistas .protagonistas-knight{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.principal-protagonistas .protagonistas-hornet{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.principal-importantes{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.principal-importantes img{
+
+    margin: 1.5rem;
+    width: 25%;
+
+}
+
+.importantes-rei{
+
+    display: flex;
+
+}
+
+.importantes-hollow{
+
+    display: flex;
+
+}
+
+.principal-observadores{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.principal-observadores img{
+
+    width: 60%;
+    height: 15rem;
+    margin: 1.5rem;
+
+}
+
+.principal-observadores p{
+
+    margin: 1rem;
+
+}
+
+.principal-radiancia{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }

@@ -79,15 +79,36 @@ a {
   text-decoration: none;
 }
 
+.box {
+  width: 200px;
+  height: 10px;
+  background-color: #f0f0f0;
+  overflow: hidden; /* Importante para esconder o conteúdo quando a altura é 0 */
+  transition: height 0.5s ease; /* Animação para a altura */
+}
+
+.box p {
+  padding: 10px;
+}
+
+.box:hover {
+  height: 100px; /* Defina a altura desejada */
+}
+
+
 
     </style>
 </head>
     <body>
-  <div class="tela" id="home">
+  <!-- <div class="tela" id="home">
     <h1>Página Inicial</h1>
     <a href="#blur">Ir para tela com blur</a>
     <a href="#transicao">Ir para tela com transição</a>
-  </div>
+  </div> -->
+
+  <div class="box" id="home">
+  <p>Conteúdo da box</p>
+</div>
 
   <div class="tela" id="blur">
     <div class="fundo-blur"></div>
