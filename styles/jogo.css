@@ -1,4 +1,4 @@
-main{
+main {
 
     display: flex;
     justify-self: center;
@@ -7,12 +7,12 @@ main{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    position:relative;
+    position: relative;
     border-radius: 25px;
 
 }
 
-h2{
+h2 {
 
     display: flex;
     justify-content: center;
@@ -22,19 +22,19 @@ h2{
 
 }
 
-.container{
+.container {
 
     width: 50rem;
     margin: 40px auto;
     padding: 20px;
     box-sizing: border-box;
-    position:relative;
+    position: relative;
     min-height: 24rem;
     overflow: hidden;
 
 }
 
-.container{
+.container {
 
     display: flex;
     justify-content: center;
@@ -42,7 +42,8 @@ h2{
 
 }
 
-.container .container-botoes, .tela{
+.container .container-botoes,
+.tela {
 
     display: flex;
     flex-direction: column;
@@ -51,7 +52,7 @@ h2{
 
 }
 
-.tela:not(:target){
+.tela:not(:target) {
 
     position: absolute;
     opacity: 0;
@@ -60,7 +61,9 @@ h2{
 
 }
 
-#principal:target, #mapa:target, #ranking:target{
+#principal:target,
+#mapa:target,
+#ranking:target {
 
     opacity: 1;
     z-index: 3;
@@ -68,7 +71,7 @@ h2{
 
 }
 
-.container-botoes h3{
+.container-botoes h3 {
 
     background: white;
     border-radius: 15px;
@@ -77,18 +80,29 @@ h2{
 }
 
 
-a{
+#principal:not(:target),
+#mapa:not(:target),
+#ranking:not(:target) {
 
-    color:black;
+    opacity: 0;
+    z-index: -2;
+
+}
+
+a {
+
+    color: black;
     text-decoration: none;
-    
+
 }
 
 .blur {
 
-    position:absolute;
-    width: 100%; height: 100%;
-    top:0; left:0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     backdrop-filter: blur(20px);
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 25px;
@@ -96,4 +110,112 @@ a{
     background-size: cover; */
 
 }
+
+#mapa:target ~ footer,
+#mapa:target ~ header{
+
+    display: none;
+
+}
+
+#mapa body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #111;
+    font-family: sans-serif;
+}
+
+.map-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 250px;
+    height: 180px;
+    border: 3px solid white;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+.map-container:hover {
+    transform: scale(1.05);
+}
+
+.map-container.expanded {
+    width: 90vw;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -50%);
+    cursor: default;
+    z-index: 20;
+}
+
+.map-image {
+    max-width: 100%;
+    max-height: 100%;
+    user-select: none;
+    pointer-events: all;
+}
+
+.marker {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: rgb(237, 240, 94);
+    border-radius: 50%;
+    border: 2px solid white;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    pointer-events: none;
+}
+
+#submit-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    opacity: 0.5;
+    cursor: not-allowed;
+    transition: 0.3s;
+}
+
+#submit-btn.active {
+    background-color: rgb(9, 68, 146);
+    cursor: pointer;
+    opacity: 1;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(165, 185, 49, 0.7);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 25;
+    display: none;
+}
+
+.map-container.expanded #close-btn {
+    display: block;
+}
+
 

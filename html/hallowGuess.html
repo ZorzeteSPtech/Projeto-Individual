@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/jogo.css">
+    <script src="./js/jogo.js"></script>
     <title>HallowGuess</title>
 </head>
-    <script type="text/javascript">
-        location.href = "#principal";
-    </script>
+<script type="text/javascript">
+    location.href = "#principal";
+</script>
+
 <body>
+
+    <section id="mapa" class="tela">
+
+        <div class="map-container" id="mapContainer">
+            <button id="close-btn">Fechar</button>
+            <img src="./assets/img/mapa.webp" alt="Mapa" class="map-image" id="mapImage">
+        </div>
+
+        <!-- Botão de submit -->
+        <button id="submit-btn" disabled>Submit</button>
+
+    </section>
 
     <header>
         <nav class="nav">
@@ -36,35 +50,28 @@
         </nav>
     </header>
 
-        <h2>HallowGuess</h2>
+    <h2>HallowGuess</h2>
 
     <main>
-        
+
         <div class="blur"></div>
 
         <div class="container">
-            
+
 
             <section id="principal" class="tela">
-                
+
                 <div class="container-botoes">
                     <h3><a href="#mapa">Jogar</a></h3>
                     <h3><a href="#ranking">Ranking</a></h3>
-
-
                 </div>
-
-            </section>
-
-            <section id="mapa" class="tela">
-
-                <img src="https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg=" alt="Imagem">
 
             </section>
 
             <section id="ranking" class="tela">
 
-                <img src="https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg=" alt="Imagem">
+                <img src="https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg="
+                    alt="Imagem">
 
             </section>
 
@@ -103,3 +110,8 @@
 </body>
 
 </html>
+
+<script>
+
+
+</script>
