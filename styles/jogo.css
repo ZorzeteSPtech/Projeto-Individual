@@ -120,12 +120,6 @@ a {
 
 }
 
-#mapa body {
-    margin: 0;
-    overflow: hidden;
-    background-color: #111;
-    font-family: sans-serif;
-}
 
 #mapa {
   width: 100vw;

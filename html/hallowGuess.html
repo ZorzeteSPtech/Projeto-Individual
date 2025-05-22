@@ -117,8 +117,91 @@
 </body>
 
 </html>
-
 <script>
+  const mapContainer = document.getElementById('mapContainer');
+  const closeBtn = document.getElementById('close-btn');
+
+
+//     const regioes = [
+//   { nome: "Cidade das Lágrimas", coords: [110, 63, 280, 140] },
+//   { nome: "Caminho Verde", coords: [30, 80, 90, 120] },
+// ];
+
+// img.addEventListener("click", function (e) {
+//   const rect = img.getBoundingClientRect();
+//   const x = e.clientX - rect.left;
+//   const y = e.clientY - rect.top;
+
+//   for (const regiao of regioes) {
+//     const [x1, y1, x2, y2] = regiao.coords;
+//     if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
+//       alert(`Você clicou em: ${regiao.nome}`);
+//     }
+//   }
+// });
+
+  const regioes = [
+
+    {nome: "Dirtmouth", coord: [imge-map]}
+
+  ]
+
+  // Expandir ao clicar no mini-mapa
+  mapContainer.addEventListener('click', function (event) {
+    // Evita expandir quando clicar no botão de fechar
+    if (event.target === closeBtn) return;
+
+    mapContainer.classList.add('expanded');
+  });
+
+  // Fechar o mapa expandido
+  closeBtn.addEventListener('click', function () {
+    mapContainer.classList.remove('expanded');
+  });
+
+
+const mapImage = document.getElementById('mapImage');
+
+mapImage.addEventListener('click', function (event) {
+  const rect = mapImage.getBoundingClientRect();
+
+  const x = ((event.clientX - rect.left) / rect.width) * 100;
+  const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+  console.log(`Coordenadas relativas: ${x.toFixed(2)}%, ${y.toFixed(2)}%`);
+
+  // Adiciona o marcador no local clicado
+  createMarker(x, y);
+});
+
+
+
+function removeOldMarker() {
+  const oldMarker = mapContainer.querySelector('.marker');
+  if (oldMarker) oldMarker.remove();
+}
+
+function createMarker(xPercent, yPercent) {
+  removeOldMarker();
+
+  const marker = document.createElement('div');
+  marker.classList.add('marker');
+  marker.style.left = `${xPercent}%`;
+  marker.style.top = `${yPercent}%`;
+
+  mapContainer.appendChild(marker);
+}
+
+mapContainer.addEventListener('click', function (event) {
+  const rect = mapContainer.getBoundingClientRect();
+
+  // Coordenadas relativas ao container (não à imagem!)
+  const x = ((event.clientX - rect.left) / rect.width) * 100;
+  const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+  createMarker(x, y);
+});
+
 
 
 
