@@ -127,6 +127,15 @@ a {
     font-family: sans-serif;
 }
 
+#mapa {
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
 .map-container {
     position: fixed;
     bottom: 20px;
@@ -220,4 +229,21 @@ a {
     display: block;
 }
 
+.pontuacao{
 
+    display: flex;
+    justify-self: end;
+    align-self: center;
+
+}
+
+
+.pontos{
+
+    background-color: white;
+    margin: 10px;
+    padding: 2rem;
+    border-radius: 10px;
+    color: black;
+
+}
