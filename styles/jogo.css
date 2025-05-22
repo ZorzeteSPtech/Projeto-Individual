@@ -112,7 +112,9 @@ a {
 }
 
 #mapa:target ~ footer,
-#mapa:target ~ header{
+#mapa:target ~ header,
+#mapa:target ~ h2,
+#mapa:target ~ main{
 
     display: none;
 

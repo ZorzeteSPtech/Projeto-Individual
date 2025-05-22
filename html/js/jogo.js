@@ -1,66 +1,31 @@
- const mapContainer = document.getElementById('mapContainer');
-  const mapImage = document.getElementById('mapImage');
-  const closeBtn = document.getElementById('close-btn');
-  const submitBtn = document.getElementById('submit-btn');
+var mapas = [`1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`];
 
-  let marker = null;
+// Detecta mudança de hash (tipo clicar em <a href="#mapa">)
+window.addEventListener("hashchange", () => {
+  if (window.location.hash === "#mapa") {
+    mapa();
+  }
+});
 
-  // Expande o mapa ao clicar se ainda não estiver expandido
-  mapContainer.addEventListener('click', (e) => {
-    // Se já estiver expandido, não faz nada (para evitar recolher)
-    if (mapContainer.classList.contains('expanded')) return;
-    mapContainer.classList.add('expanded');
-  });
+// Também chama ao carregar a página com #mapa já na URL
+window.addEventListener("load", () => {
+  if (window.location.hash === "#mapa") {
+    mapa();
+  }
+});
 
-  // Clicar dentro do mapa (expandido) marca o ponto
-  mapImage.addEventListener('click', (e) => {
-    const rect = mapImage.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const clickY = e.clientY - rect.top;
+function mapa() {
 
-    // Remove marcador anterior
-    if (marker) marker.remove();
+  var randomMapa = Math.floor(Math.random() * 15);
+  var cont = 0;
 
-    // Cria novo marcador
-    marker = document.createElement('div');
-    marker.classList.add('marker');
-    marker.style.left = `${e.clientX}px`;
-    marker.style.top = `${e.clientY}px`;
-    document.body.appendChild(marker);
+  if (randomMapa == mapas[0]) {
 
-    // Ativa botão submit
-    submitBtn.disabled = false;
-    submitBtn.classList.add('active');
-  });
+    alert("Wow!!");
 
-  // Botão submit
-  submitBtn.addEventListener('click', () => {
-    alert("Local escolhido com sucesso!");
-  });
+  }
 
-  // Botão fechar
-  closeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    mapContainer.classList.remove('expanded');
-    if (marker) marker.remove();
-    submitBtn.disabled = true;
-    submitBtn.classList.remove('active');
-  });
-
-  // Clicar fora do mapa (quando expandido) fecha ele
-  document.addEventListener('click', (e) => {
-    if (!mapContainer.classList.contains('expanded')) return;
-
-    const isClickInside = mapContainer.contains(e.target);
-    if (!isClickInside) {
-      mapContainer.classList.remove('expanded');
-      if (marker) marker.remove();
-      submitBtn.disabled = true;
-      submitBtn.classList.remove('active');
-    }
-  });
-
-  
+}
 
 
-  
+
