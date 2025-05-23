@@ -241,3 +241,17 @@ a {
     color: black;
 
 }
+
+
+.rankingChart{
+
+    z-index: 10;
+
+}
+
+canvas{
+
+    width: auto;
+    height: auto;
+
+}

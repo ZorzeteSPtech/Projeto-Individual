@@ -1,184 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mapa com Indicador</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background-color: #111;
-      font-family: sans-serif;
-    }
-
-    .map-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 250px;
-      height: 180px;
-      border: 3px solid white;
-      overflow: hidden;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      z-index: 10;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #000;
-    }
-
-    .map-container:hover {
-      transform: scale(1.05);
-    }
-
-    .map-container.expanded {
-      width: 90vw;
-      height: 80vh;
-      top: 50%;
-      left: 50%;
-      bottom: auto;
-      right: auto;
-      transform: translate(-50%, -50%);
-      cursor: default;
-      z-index: 20;
-    }
-
-    .map-image {
-      max-width: 100%;
-      max-height: 100%;
-      user-select: none;
-      pointer-events: all;
-    }
-
-    .marker {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background-color: rgb(237, 240, 94);
-      border-radius: 50%;
-      border: 2px solid white;
-      transform: translate(-50%, -50%);
-      z-index: 30;
-      pointer-events: none;
-    }
-
-    #submit-btn {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #555;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      opacity: 0.5;
-      cursor: not-allowed;
-      transition: 0.3s;
-    }
-
-    #submit-btn.active {
-      background-color: rgb(9, 68, 146);
-      cursor: pointer;
-      opacity: 1;
-    }
-
-    #close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: rgba(165, 185, 49, 0.7);
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      font-size: 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      z-index: 25;
-      display: none;
-    }
-
-    .map-container.expanded #close-btn {
-      display: block;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Gráfico Temperatura</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <h1>Gráfico de Temperatura</h1>
+  <button onclick="incrementar()">Incrementar Temperatura</button>
+  <canvas id="graficoTemperatura"></canvas>
 
-<div class="map-container" id="mapContainer">
-  <button id="close-btn">Fechar</button>
-  <img src="./assets/img/mapa.webp" alt="Mapa" class="map-image" id="mapImage">
-</div>
+  <script>
+    let chart;
 
-<!-- Botão de submit -->
-<button id="submit-btn" disabled>Submit</button>
+    async function carregarGrafico() {
+      const res = await fetch('http://localhost:3000/temperatura');
+      const data = await res.json();
 
-<script>
-  const mapContainer = document.getElementById('mapContainer');
-  const mapImage = document.getElementById('mapImage');
-  const closeBtn = document.getElementById('close-btn');
-  const submitBtn = document.getElementById('submit-btn');
-
-  let marker = null;
-
-  // Expande o mapa ao clicar se ainda não estiver expandido
-  mapContainer.addEventListener('click', (e) => {
-    // Se já estiver expandido, não faz nada (para evitar recolher)
-    if (mapContainer.classList.contains('expanded')) return;
-    mapContainer.classList.add('expanded');
-  });
-
-  // Clicar dentro do mapa (expandido) marca o ponto
-  mapImage.addEventListener('click', (e) => {
-    const rect = mapImage.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const clickY = e.clientY - rect.top;
-
-    // Remove marcador anterior
-    if (marker) marker.remove();
-
-    // Cria novo marcador
-    marker = document.createElement('div');
-    marker.classList.add('marker');
-    marker.style.left = `${e.clientX}px`;
-    marker.style.top = `${e.clientY}px`;
-    document.body.appendChild(marker);
-
-    // Ativa botão submit
-    submitBtn.disabled = false;
-    submitBtn.classList.add('active');
-  });
-
-  // Botão submit
-  submitBtn.addEventListener('click', () => {
-    alert("Local escolhido com sucesso!");
-  });
-
-  // Botão fechar
-  closeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    mapContainer.classList.remove('expanded');
-    if (marker) marker.remove();
-    submitBtn.disabled = true;
-    submitBtn.classList.remove('active');
-  });
-
-  // Clicar fora do mapa (quando expandido) fecha ele
-  document.addEventListener('click', (e) => {
-    if (!mapContainer.classList.contains('expanded')) return;
-
-    const isClickInside = mapContainer.contains(e.target);
-    if (!isClickInside) {
-      mapContainer.classList.remove('expanded');
-      if (marker) marker.remove();
-      submitBtn.disabled = true;
-      submitBtn.classList.remove('active');
+      const ctx = document.getElementById('graficoTemperatura').getContext('2d');
+      if (chart) chart.destroy(); // Atualizar gráfico
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: false }
+          }
+        }
+      });
     }
-  });
-</script>
 
+    async function incrementar() {
+      await fetch('http://localhost:3000/temperatura/incrementar', { method: 'POST' });
+      await carregarGrafico();
+    }
+
+    carregarGrafico();
+  </script>
 </body>
 </html>
+
+
+  <script>
+
+    const mysql = require('mysql2');
+
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',       // substitua se necessário
+      password: 'root123',       // substitua se necessário
+      database: 'sensores'
+    });
+
+    connection.connect(err => {
+      if (err) throw err;
+      console.log('Conectado ao MySQL!');
+    });
+
+    module.exports = connection;
+
+    const db = require('./db');
+
+    function adicionarLeitura(sensorId, valor, callback) {
+      const query = 'INSERT INTO leituras (sensorId, valor) VALUES (?, ?)';
+      db.query(query, [sensorId, valor], (err, result) => {
+        if (err) return callback(err);
+        callback(null, { id: result.insertId, sensorId, valor });
+      });
+    }
+
+    function obterTodas(callback) {
+      const query = 'SELECT * FROM leituras ORDER BY data ASC';
+      db.query(query, (err, results) => {
+        if (err) return callback(err);
+        callback(null, results);
+      });
+    }
+
+    module.exports = {
+      adicionarLeitura,
+      obterTodas
+    };
+
+    const temperaturaModel = require('../models/temperaturaModel');
+
+    exports.registrarTemperatura = (req, res) => {
+      const { sensorId, valor } = req.body;
+      if (!sensorId || valor === undefined) {
+        return res.status(400).json({ mensagem: 'Dados incompletos.' });
+      }
+
+      temperaturaModel.adicionarLeitura(sensorId, valor, (err, leitura) => {
+        if (err) return res.status(500).json({ erro: err });
+        res.status(201).json({ mensagem: 'Registrado.', leitura });
+      });
+    };
+
+    exports.obterDadosParaGrafico = (req, res) => {
+      temperaturaModel.obterTodas((err, leituras) => {
+        if (err) return res.status(500).json({ erro: err });
+
+        const dados = {
+          labels: leituras.map(l => l.data),
+          datasets: [{
+            label: 'Temperatura',
+            data: leituras.map(l => l.valor),
+            borderColor: 'rgba(75, 192, 192, 1)',
+            tension: 0.1
+          }]
+        };
+
+        res.json(dados);
+      });
+    };
+
+    // Novo endpoint: incrementa o último valor
+    exports.incrementarTemperatura = (req, res) => {
+      temperaturaModel.obterTodas((err, leituras) => {
+        if (err) return res.status(500).json({ erro: err });
+
+        const ultimo = leituras[leituras.length - 1];
+        const novoValor = ultimo ? parseFloat(ultimo.valor) + 1 : 1;
+
+        temperaturaModel.adicionarLeitura('sensor-01', novoValor, (err, leitura) => {
+          if (err) return res.status(500).json({ erro: err });
+          res.status(201).json({ mensagem: 'Incrementado.', leitura });
+        });
+      });
+    };
+
+
+
+  </script>
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
