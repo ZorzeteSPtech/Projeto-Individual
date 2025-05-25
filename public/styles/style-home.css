@@ -1,0 +1,97 @@
+.banner {
+  display: flex;
+  justify-content: center;
+  background: #090919;
+}
+
+.banner img {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.introducao video {
+
+  display: flex;
+  justify-self: center;
+  
+}
+
+.introducao-plataforma ul li {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin-right: 30px;
+  margin-left: 10px;
+}
+
+.introducao-plataforma ul {
+  display: flex;
+  justify-content: center;
+}
+
+.introducao {
+  margin-bottom: 80px;
+}
+
+.resumo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.resumo p {
+  font-size: 1.5rem;
+}
+
+.resumo-partes {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.resumo img {
+  max-width: 50%;
+  display: block;
+}
+
+.personagens {
+  display: flex;
+  flex-direction: column;
+}
+
+.personagens .personagens-imagens {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin-bottom: 5rem;
+}
+
+.personagens-imagens .imagens-personagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personagens img {
+  max-width: 80%;
+  height: 22rem;
+  display: block;
+}
+
+.comentarios {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.comentarios .comentarios-principal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comentarios .principal-card {
+  background-color: antiquewhite;
+  width: 15rem;
+  height: 5rem;
+}
