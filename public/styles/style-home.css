@@ -1,7 +1,6 @@
 .banner {
   display: flex;
   justify-content: center;
-  background: #090919;
 }
 
 .banner img {
@@ -9,10 +8,13 @@
   margin-bottom: 4rem;
 }
 
-.introducao video {
+.introducao iframe {
 
   display: flex;
   justify-self: center;
+  box-shadow: 10px 10px 8px #090919;
+  border: #607db465 6px solid;
+  border-radius: 20px;
   
 }
 
@@ -46,12 +48,17 @@
 .resumo-partes {
   display: flex;
   flex-direction: row;
-  margin: 10px;
+  margin: 20px;
 }
 
 .resumo img {
   max-width: 50%;
   display: block;
+  margin: 20px;
+
+  box-shadow: 10px 10px 8px #090919;
+  border: #607db465 6px solid;
+  border-radius: 20px;
 }
 
 .personagens {

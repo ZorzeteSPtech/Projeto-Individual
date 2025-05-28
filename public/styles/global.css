@@ -1,111 +1,88 @@
 @font-face {
-    font-family: 'TrajanPro';
-    src: url(../assets/fontes/Trajan-Pro-Regular/Trajan-Pro-Regular.ttf) format('truetype');
+  font-family: "TrajanPro";
+  src: url(../assets/fontes/Trajan-Pro-Regular/Trajan-Pro-Regular.ttf)
+    format("truetype");
 }
 
-body{
-
-    margin:0px;
-    padding:0px;
-    font-family: 'TrajanPro', serif;
-    background: #090919;
-    color: white;
-
-
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "TrajanPro", serif;
+  background-image: url("../assets/img/Sprite/Voidheart_menu_BG.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  backdrop-filter: blur(8px);
+  color: white;
 }
 
-main{
-
-    background: #404A89;
-    margin: 0 15rem 0 15rem;
-    border-radius: 10px;
-    padding: 4rem;
-
+main {
+  background: linear-gradient(to bottom right, #404a8954, #404a89);
+  margin: 0 15rem 0 15rem;
+  border-radius: 10px;
+  padding: 4rem;
 }
 
-.nav{
-
-    background: #222A5A;
-    margin-bottom: 2rem;
-    width: 100%;
-
+.nav {
+  background: #222a5a;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
-.nav .nav-menu .nav-menu-link{
-
-    display: flex;
-    align-items: center;
-    
+.nav .nav-menu .nav-menu-link {
+  display: flex;
+  align-items: center;
 }
 
-.nav .nav-menu{
-
-    display: flex;
-    justify-content: space-between;
-
+.nav .nav-menu {
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav .nav-menu ul{
-
-    list-style-type: none;
-
+.nav .nav-menu ul {
+  list-style-type: none;
 }
 
-.nav .nav-menu ul li a{
-
-    text-decoration: none;
-    color: white;
-    margin-right: 15px;
-
+.nav .nav-menu ul li a {
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
 }
 
-.nav .nav-menu img{
-
-    width: 5rem;
-
+.nav .nav-menu img {
+  width: 5rem;
 }
 
-footer{
-
-    background: #222A5A;
-    margin-top: 2rem;
-
+footer {
+  background: #222a5a;
+  margin-top: 2rem;
 }
 
-.rodape{
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    margin: 0px 10px 0px 10px;
-    padding-bottom: 2%;
-
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 0px 10px 0px 10px;
+  padding-bottom: 2%;
 }
 
-.rodape a{
-
-    text-decoration: none;
-    color: white;
-
+.rodape a {
+  text-decoration: none;
+  color: white;
 }
 
-.rodape ul li{
-
-    list-style-type: none;
-
+.rodape ul li {
+  list-style-type: none;
 }
 
-.rodape-endereco img{
-
-    display: flex;
-    width: 80px;
-    justify-self: center;
-
+.rodape-endereco img {
+  display: flex;
+  width: 80px;
+  justify-self: center;
 }
 
-.rodape-endereco p{
-
-    justify-self: center;
-
+.rodape-endereco p {
+  justify-self: center;
 }
