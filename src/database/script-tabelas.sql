@@ -20,12 +20,6 @@ ponto_atual int,
 tempo_rodada time
 );
 
-create table ranking(
-idRanking int primary key auto_increment,
-rank_atual int,
-ponto_necessario int
-);
-
 create table pontuacao(
 idPontuacao int,
 ponto_total int,
@@ -33,10 +27,9 @@ melhor_ponto int,
 
 fkUsuario int,
 fkRodada int,
-fkRanking int,
 
 constraint associativa
-	primary key (idPontuacao, fkUsuario, fkRodada, fkRanking),
+	primary key (idPontuacao, fkUsuario, fkRodada),
     
 constraint PontoUsuario
 	foreign key (fkUsuario)
@@ -45,10 +38,6 @@ constraint PontoUsuario
 constraint PontoRodada
 	foreign key (fkRodada)
 		references rodada(idRodada),
-        
-constraint PontoRanking
-	foreign key (fkRanking)
-		references ranking(idRanking)
 
 );
 

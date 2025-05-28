@@ -18,7 +18,7 @@
       <div class="map-container" id="mapContainer">
         <button id="close-btn">Fechar</button>
         <img
-          src="../assets/img/mapa.webp"
+          src="./assets/img/mapa.svg"
           alt="Mapa"
           class="map-image"
           id="mapImage"
@@ -86,7 +86,7 @@
 
         <div class="rodape-endereco">
           <p>Adelaide, South Australia.</p>
-          <img src="../assets/img/TeamCherry.png" />
+          <img src="./assets/img/TeamCherry.png" />
           <p>
             TEAMCHERRY @ 2025. Todos os direitos reservados. Desenvolvido por
             Team Cherry
@@ -108,30 +108,8 @@
   const mapContainer = document.getElementById("mapContainer");
   const closeBtn = document.getElementById("close-btn");
 
-  //     const regioes = [
-  //   { nome: "Cidade das Lágrimas", coords: [110, 63, 280, 140] },
-  //   { nome: "Caminho Verde", coords: [30, 80, 90, 120] },
-  // ];
 
-  // img.addEventListener("click", function (e) {
-  //   const rect = img.getBoundingClientRect();
-  //   const x = e.clientX - rect.left;
-  //   const y = e.clientY - rect.top;
-
-  //   for (const regiao of regioes) {
-  //     const [x1, y1, x2, y2] = regiao.coords;
-  //     if (x >= x1 && x <= x2 && y >= y1 && y <= y2) {
-  //       alert(`Você clicou em: ${regiao.nome}`);
-  //     }
-  //   }
-  // });
-
-  //   const regioes = [
-
-  //     {nome: "Dirtmouth", coord: [image-map]}
-
-  //   ]
-
+  
   // Expandir ao clicar no mini-mapa
   mapContainer.addEventListener("click", function (event) {
     // Evita expandir quando clicar no botão de fechar
@@ -152,9 +130,7 @@
 
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-    console.log(`Coordenadas relativas: ${x.toFixed(2)}%, ${y.toFixed(2)}%`);
-
+    
     // Adiciona o marcador no local clicado
     createMarker(x, y);
   });
