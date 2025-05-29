@@ -1,141 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Gráfico Temperatura</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Background Scroll e Hover</title>
+  <style>
+    body {
+      margin: 0;
+      height: 400vh; /* Conteúdo alto para scroll */
+      transition: background-image 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hover-area {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
 </head>
 <body>
-  <h1>Gráfico de Temperatura</h1>
-  <button onclick="incrementar()">Incrementar Temperatura</button>
-  <canvas id="graficoTemperatura"></canvas>
+
+  <div class="hover-area">Passe o mouse aqui</div>
 
   <script>
-    let chart;
+    const body = document.body;
 
-    async function carregarGrafico() {
-      const res = await fetch('http://localhost:3000/temperatura');
-      const data = await res.json();
+    // Troca o background baseado na posição de scroll
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
 
-      const ctx = document.getElementById('graficoTemperatura').getContext('2d');
-      if (chart) chart.destroy(); // Atualizar gráfico
-      chart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-          responsive: true,
-          scales: {
-            y: { beginAtZero: false }
-          }
-        }
-      });
-    }
-
-    async function incrementar() {
-      await fetch('http://localhost:3000/temperatura/incrementar', { method: 'POST' });
-      await carregarGrafico();
-    }
-
-    carregarGrafico();
-  </script>
-</body>
-</html>
-
-
-  <script>
-
-    const mysql = require('mysql2');
-
-    const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',       // substitua se necessário
-      password: 'root123',       // substitua se necessário
-      database: 'sensores'
-    });
-
-    connection.connect(err => {
-      if (err) throw err;
-      console.log('Conectado ao MySQL!');
-    });
-
-    module.exports = connection;
-
-    const db = require('./db');
-
-    function adicionarLeitura(sensorId, valor, callback) {
-      const query = 'INSERT INTO leituras (sensorId, valor) VALUES (?, ?)';
-      db.query(query, [sensorId, valor], (err, result) => {
-        if (err) return callback(err);
-        callback(null, { id: result.insertId, sensorId, valor });
-      });
-    }
-
-    function obterTodas(callback) {
-      const query = 'SELECT * FROM leituras ORDER BY data ASC';
-      db.query(query, (err, results) => {
-        if (err) return callback(err);
-        callback(null, results);
-      });
-    }
-
-    module.exports = {
-      adicionarLeitura,
-      obterTodas
-    };
-
-    const temperaturaModel = require('../models/temperaturaModel');
-
-    exports.registrarTemperatura = (req, res) => {
-      const { sensorId, valor } = req.body;
-      if (!sensorId || valor === undefined) {
-        return res.status(400).json({ mensagem: 'Dados incompletos.' });
+      if (scrollPos < 300) {
+        body.style.backgroundImage = "url('https://picsum.photos/seed/1/1600/900')";
+      } else if (scrollPos < 600) {
+        body.style.backgroundImage = "url('https://picsum.photos/seed/2/1600/900')";
+      } else if (scrollPos < 900) {
+        body.style.backgroundImage = "url('https://picsum.photos/seed/3/1600/900')";
+      } else {
+        body.style.backgroundImage = "url('https://picsum.photos/seed/4/1600/900')";
       }
+    });
 
-      temperaturaModel.adicionarLeitura(sensorId, valor, (err, leitura) => {
-        if (err) return res.status(500).json({ erro: err });
-        res.status(201).json({ mensagem: 'Registrado.', leitura });
-      });
-    };
+    // Troca o background ao passar o mouse sobre o botão
+    const hoverArea = document.querySelector('.hover-area');
+    hoverArea.addEventListener('mouseenter', () => {
+      body.style.backgroundImage = "url('https://picsum.photos/seed/hover/1600/900')";
+    });
+    hoverArea.addEventListener('mouseleave', () => {
+      // Retorna o background ao baseado no scroll
+      window.dispatchEvent(new Event('scroll'));
+    });
 
-    exports.obterDadosParaGrafico = (req, res) => {
-      temperaturaModel.obterTodas((err, leituras) => {
-        if (err) return res.status(500).json({ erro: err });
-
-        const dados = {
-          labels: leituras.map(l => l.data),
-          datasets: [{
-            label: 'Temperatura',
-            data: leituras.map(l => l.valor),
-            borderColor: 'rgba(75, 192, 192, 1)',
-            tension: 0.1
-          }]
-        };
-
-        res.json(dados);
-      });
-    };
-
-    // Novo endpoint: incrementa o último valor
-    exports.incrementarTemperatura = (req, res) => {
-      temperaturaModel.obterTodas((err, leituras) => {
-        if (err) return res.status(500).json({ erro: err });
-
-        const ultimo = leituras[leituras.length - 1];
-        const novoValor = ultimo ? parseFloat(ultimo.valor) + 1 : 1;
-
-        temperaturaModel.adicionarLeitura('sensor-01', novoValor, (err, leitura) => {
-          if (err) return res.status(500).json({ erro: err });
-          res.status(201).json({ mensagem: 'Incrementado.', leitura });
-        });
-      });
-    };
-
-
-
+    // Inicializa o background ao carregar a página
+    window.dispatchEvent(new Event('scroll'));
   </script>
-
 </body>
-
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
