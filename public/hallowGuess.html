@@ -12,7 +12,7 @@
     location.href = "#principal";
   </script>
 
-  <body>
+  <body id="body">
     <section id="mapa" class="tela">
       <div class="voltar"><a href="#principal">Voltar</a></div>
       <div class="map-container" id="mapContainer">
@@ -72,7 +72,8 @@
         <div class="rankingChart">
           <canvas id="partidas"></canvas>
           <canvas id="partidasJogadas"></canvas>
-        </div>
+        </div>x
+        <div id="top3">Top 3</div>
       </section>
     </main>
 
@@ -164,4 +165,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="./js/jogo.js"></script>
-<script src="./js/charts.js"></script>
+<script src="./js/dashboard.js"></script>

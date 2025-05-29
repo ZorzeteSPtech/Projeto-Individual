@@ -44,90 +44,90 @@ function mapa() {
   //switch >:( 
 
   if (randomMapa == 0) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/baciaAntiga.png)";
     mapaCerto = 1;
   }
 
   if (randomMapa == 1) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/bordaReino.png)";
 
     mapaCerto = 2;
   }
 
   if (randomMapa == 2) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/caminhoVerde.png)";
 
     mapaCerto = 3;
   }
 
   if (randomMapa == 3) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/canionNevoa.png)";
 
     mapaCerto = 4;
   }
 
   if (randomMapa == 4) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/cidadeLagrimas.png)";
 
     mapaCerto = 5;
   }
 
   if (randomMapa == 5) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/Colmeia.png)";
 
     mapaCerto = 6;
   }
 
   if (randomMapa == 6) {
-    section.style.backgroundImage = "url(./assets/img/baciaAntiga.png)";
+    section.style.backgroundImage = "url(./assets/img/dirtmouth.png)";
 
     mapaCerto = 7;
   }
 
   if (randomMapa == 7) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/encruzilhada.png)";
 
     mapaCerto = 8;
   }
 
   if (randomMapa == 8) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/ermosFungicos.png)";
 
     mapaCerto = 9;
   }
 
   if (randomMapa == 9) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/hidrovia.png)";
 
     mapaCerto = 10;
   }
 
   if (randomMapa == 10) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/jardimRainha.png)";
 
     mapaCerto = 11;
   }
 
   if (randomMapa == 11) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/ninhoProfundo.png)";
 
     mapaCerto = 12;
   }
 
   if (randomMapa == 12) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/penhascoUivante.png)";
 
     mapaCerto = 13;
   }
 
   if (randomMapa == 13) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/picoCristal.png)";
 
     mapaCerto = 14;
   }
 
   if (randomMapa == 14) {
-    section.style.backgroundImage = "url(./assets/img/mapa.webp)";
+    section.style.backgroundImage = "url(./assets/img/img-jogo/terraDescanco.png)";
 
     mapaCerto = 15;
   }
@@ -159,44 +159,60 @@ let locations = [];
 let currentImage = null;
 let score = 0;
 
-const imageEl = document.getElementById("target-image");
-const mapEl = document.getElementById("map");
-const scoreEl = document.getElementById("score");
-const nextBtn = document.getElementById("next");
+// const imageEl = document.getElementById("target-image");
+// const mapEl = document.getElementById("map");
+// const scoreEl = document.getElementById("score");
+// const nextBtn = document.getElementById("next");
 
-fetch("data/locations.json")
-  .then((res) => res.json())
-  .then((data) => {
-    locations = data;
-    loadNextImage();
-  });
+// fetch("data/locations.json")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     locations = data;
+//     loadNextImage();
+//   });
 
-function loadNextImage() {
-  const randomIndex = Math.floor(Math.random() * locations.length);
-  currentImage = locations[randomIndex];
-  imageEl.src = `../assets/images/${currentImage.filename}`;
+// function loadNextImage() {
+//   const randomIndex = Math.floor(Math.random() * locations.length);
+//   currentImage = locations[randomIndex];
+//   imageEl.src = `../assets/images/${currentImage.filename}`;
+// }
+
+// mapEl.addEventListener("click", function (e) {
+//   const rect = mapEl.getBoundingClientRect();
+//   const clickX = e.clientX - rect.left;
+//   const clickY = e.clientY - rect.top;
+
+//   const correctX = currentImage.location.x;
+//   const correctY = currentImage.location.y;
+
+//   const distance = Math.sqrt(
+//     Math.pow(clickX - correctX, 2) + Math.pow(clickY - correctY, 2)
+//   );
+//   const maxDistance = Math.sqrt(
+//     Math.pow(rect.width, 2) + Math.pow(rect.height, 2)
+//   );
+//   const distancePercent = (distance / maxDistance) * 100;
+
+//   const earnedPoints = Math.max(0, Math.floor(100 - distancePercent));
+//   score += earnedPoints;
+
+//   scoreEl.textContent = `Pontuação: ${score} (+${earnedPoints})`;
+// });
+
+// nextBtn.addEventListener("click", loadNextImage);
+
+
+
+function jogoAcabou(){
+
+  body.getElementById("hashchange", () =>{
+
+    if (rodadas >= 5){
+
+
+
+    }
+
+  })
+
 }
-
-mapEl.addEventListener("click", function (e) {
-  const rect = mapEl.getBoundingClientRect();
-  const clickX = e.clientX - rect.left;
-  const clickY = e.clientY - rect.top;
-
-  const correctX = currentImage.location.x;
-  const correctY = currentImage.location.y;
-
-  const distance = Math.sqrt(
-    Math.pow(clickX - correctX, 2) + Math.pow(clickY - correctY, 2)
-  );
-  const maxDistance = Math.sqrt(
-    Math.pow(rect.width, 2) + Math.pow(rect.height, 2)
-  );
-  const distancePercent = (distance / maxDistance) * 100;
-
-  const earnedPoints = Math.max(0, Math.floor(100 - distancePercent));
-  score += earnedPoints;
-
-  scoreEl.textContent = `Pontuação: ${score} (+${earnedPoints})`;
-});
-
-nextBtn.addEventListener("click", loadNextImage);
