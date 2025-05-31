@@ -8,37 +8,12 @@ h2{
 
 }
 
-.principal img{
-
-    width:40%;
-
-}
-
 .principal-protagonistas{
 
     display: flex;
 
 }
 
-.principal-protagonistas img{
-
-    height: 13rem;
-
-}
-
-.principal-protagonistas .protagonistas-knight{
-
-    display: flex;
-    flex-direction: column;
-
-}
-
-.principal-protagonistas .protagonistas-hornet{
-
-    display: flex;
-    flex-direction: column;
-
-}
 
 .principal-importantes{
 
@@ -47,12 +22,6 @@ h2{
 
 }
 
-.principal-importantes img{
-
-    margin: 1.5rem;
-    width: 25%;
-
-}
 
 .importantes-rei{
 
@@ -66,22 +35,15 @@ h2{
 
 }
 
-.principal-observadores{
+.principal-sonhadores{
 
     display: flex;
     justify-content: center;
 
 }
 
-.principal-observadores img{
 
-    width: 60%;
-    height: 15rem;
-    margin: 1.5rem;
-
-}
-
-.principal-observadores p{
+.principal-sonhadores p{
 
     margin: 1rem;
 
@@ -93,4 +55,14 @@ h2{
     flex-direction: column;
     align-items: center;
 
+}
+
+body img, #map {
+  max-width: 50%;
+  display: block;
+  margin: 20px;
+
+  box-shadow: 10px 10px 8px #090919;
+  border: #607db465 6px solid;
+  border-radius: 20px;
 }

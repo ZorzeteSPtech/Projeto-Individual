@@ -56,3 +56,21 @@ h2{
     font-size: 3rem;
 
 }
+
+main img{
+  max-width: 50%;
+  display: block;
+  margin: 20px;
+
+  box-shadow: 10px 10px 8px #090919;
+  border: #607db465 6px solid;
+  border-radius: 20px;
+}
+
+.sumario img{
+
+  box-shadow: 10px 10px 8px #090919;
+  border: #607db465 6px solid;
+  border-radius: 20px;
+
+}
