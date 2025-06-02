@@ -4,6 +4,12 @@
     format("truetype");
 }
 
+*{
+
+  box-sizing: border-box;
+
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -18,14 +24,14 @@ body {
 }
 
 main {
-  background: linear-gradient(to bottom right, #404a8954, #404a89);
+  background: linear-gradient(to bottom right, #22252fa6, #989a9eb2);
   margin: 0 10rem 0 10rem;
   border-radius: 10px;
   padding: 4rem;
 }
 
 .nav {
-  background: #222a5a;
+  background: linear-gradient(to bottom, #494949, #44444488);
   margin-bottom: 2rem;
   width: 100%;
 }
@@ -55,7 +61,7 @@ main {
 }
 
 footer {
-  background: #222a5a;
+  background: linear-gradient(to top, #3f3f3f, #44444488);
   margin-top: 2rem;
 }
 
@@ -86,3 +92,4 @@ footer {
 .rodape-endereco p {
   justify-self: center;
 }
+

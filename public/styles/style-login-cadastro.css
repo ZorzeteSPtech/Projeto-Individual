@@ -1,5 +1,10 @@
-
-
+body {
+  background-image: url("../assets/img/bgCadastro.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 #container {
   width: 50rem;
@@ -46,6 +51,8 @@
   border-bottom: solid 1px #333;
   padding: 5px 0;
   margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .form-geral button {
@@ -107,4 +114,14 @@
 #login:not(:target) {
   opacity: 0;
   z-index: -2;
+}
+
+#voltar {
+  background-color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  text-align: center;
 }

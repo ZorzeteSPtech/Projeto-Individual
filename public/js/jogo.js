@@ -1,218 +1,355 @@
-var mapas = [
-  `1`,
-  `2`,
-  `3`,
-  `4`,
-  `5`,
-  `6`,
-  `7`,
-  `8`,
-  `9`,
-  `10`,
-  `11`,
-  `12`,
-  `13`,
-  `14`,
-  `15`,
+function onloadEsconder() {
+  document.getElementById("pontuacao").style.display = "none";
+  document.getElementById("jogo").style.display = "none";
+}
+
+const listaDeQuestoes = [
+  {
+    pergunta: "Que lugar é esse no fundo?",
+    alternativaA: "Picos de Cristis",
+    alternativaB: "Bacia Antiga",
+    alternativaC: "O Vazio",
+    alternativaD: "Dirtmouth",
+    alternativaCorreta: "alternativaB",
+    background: "background-image: url('../assets/img/bacia1.png')",
+  },
+
+  {
+    pergunta:
+      "Quantos 'GEO's' são necessários para comprar uma 'Chave Elegante' na loja do 'Sly'?",
+    alternativaA: "1100 Geo",
+    alternativaB: "2000 Geo",
+    alternativaC: "500 Geo",
+    alternativaD: "800 Geo",
+    alternativaCorreta: "alternativaD",
+  },
+
+  {
+    pergunta: "Onde o Rei Pálido foi visto pela primeira vez?",
+    alternativaA: "Dirtmouth",
+    alternativaB: "Borda do Reino",
+    alternativaC: "Jardins da Rainha",
+    alternativaD: "Palácio Branco",
+    alternativaCorreta: "alternativaB",
+  },
+
+  {
+    pergunta: "O que é o protagonista?",
+    alternativaA: "Um receptáculo vazio",
+    alternativaB: "Um seguidor do vazio",
+    alternativaC: "O Deus do Vazio",
+    alternativaD: "Uma encarnação do vazio",
+    alternativaCorreta: "alternativaA",
+  },
+
+  {
+    pergunta: "Por que a Radiância quis destruir o Reino de Hallownest?",
+    alternativaA: "Vingança contra o Rei Pálido",
+    alternativaB: "Vingança contra os insetos",
+    alternativaC: "Ela apenas fez porque podia",
+    alternativaD: "Por amor a Dama Branca",
+    alternativaCorreta: "alternativaA",
+  },
+
+  {
+    pergunta: "Qual destes veio primeiro?",
+    alternativaA: "Rei Pálido",
+    alternativaB: "Dama Branca",
+    alternativaC: "Radiância",
+    alternativaD: "Deus do Vazio",
+    alternativaCorreta: "alternativaD",
+  },
+
+  {
+    pergunta: "O que era o Rei Pálido?",
+    alternativaA: "Uma criatura qualquer que ganhou poder de outra divindade",
+    alternativaB:
+      "Um Wyrm vindo de continêntes distântes com poder concentrado",
+    alternativaC:
+      "Um seguidor do vazio que se converteu a criação de alma pura",
+    alternativaD:
+      "O Deus Inseto que decidiu unificaar Hallownest para agradar seu povo",
+    alternativaCorreta: "alternativaB",
+  },
+
+  {
+    pergunta: "O que aconteceu com o povo de Hallownest?",
+    alternativaA: "Sempre foram criaturas selvagens",
+    alternativaB: "Uma infecção tomou conta deles",
+    alternativaC: "Os que estão no jogo são insetos que queriam tomar o pdoer",
+    alternativaD: "Eles estão apenas protegendo o reino de você",
+    alternativaCorreta: "alternativaB",
+  },
 ];
 
-var ponto = pontoAtual.value;
-var melhor = melhorPonto.value;
+// variáveis globais
+let numeroDaQuestaoAtual = 0;
+let pontuacaoFinal = 0;
+let tentativaIncorreta = 0;
+let certas = 0;
+let erradas = 0;
+let quantidadeDeQuestoes = listaDeQuestoes.length;
+// let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
-// Detecta mudança de hash (tipo clicar em <a href="#mapa">)
-window.addEventListener("hashchange", () => {
-  if (window.location.hash === "#mapa") {
-    mapa();
-  }
-});
+let id_usuario = sessionStorage.getItem("ID_USUARIO");
 
-// Também chama ao carregar a página com #mapa já na URL
-window.addEventListener("load", () => {
-  if (window.location.hash === "#mapa") {
-    mapa();
-  }
-});
-
-function mapa() {
-  var randomMapa = Math.floor(Math.random() * mapas.length);
-
-  var section = document.getElementById("mapa");
-
-  var mapaCerto = 0;
-  var miniCerto = 0;
-  
-  //switch >:( 
-
-  if (randomMapa == 0) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/baciaAntiga.png)";
-    mapaCerto = 1;
-  }
-
-  if (randomMapa == 1) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/bordaReino.png)";
-
-    mapaCerto = 2;
-  }
-
-  if (randomMapa == 2) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/caminhoVerde.png)";
-
-    mapaCerto = 3;
-  }
-
-  if (randomMapa == 3) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/canionNevoa.png)";
-
-    mapaCerto = 4;
-  }
-
-  if (randomMapa == 4) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/cidadeLagrimas.png)";
-
-    mapaCerto = 5;
-  }
-
-  if (randomMapa == 5) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/Colmeia.png)";
-
-    mapaCerto = 6;
-  }
-
-  if (randomMapa == 6) {
-    section.style.backgroundImage = "url(./assets/img/dirtmouth.png)";
-
-    mapaCerto = 7;
-  }
-
-  if (randomMapa == 7) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/encruzilhada.png)";
-
-    mapaCerto = 8;
-  }
-
-  if (randomMapa == 8) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/ermosFungicos.png)";
-
-    mapaCerto = 9;
-  }
-
-  if (randomMapa == 9) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/hidrovia.png)";
-
-    mapaCerto = 10;
-  }
-
-  if (randomMapa == 10) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/jardimRainha.png)";
-
-    mapaCerto = 11;
-  }
-
-  if (randomMapa == 11) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/ninhoProfundo.png)";
-
-    mapaCerto = 12;
-  }
-
-  if (randomMapa == 12) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/penhascoUivante.png)";
-
-    mapaCerto = 13;
-  }
-
-  if (randomMapa == 13) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/picoCristal.png)";
-
-    mapaCerto = 14;
-  }
-
-  if (randomMapa == 14) {
-    section.style.backgroundImage = "url(./assets/img/img-jogo/terraDescanco.png)";
-
-    mapaCerto = 15;
-  }
-
-  console.log("Número sorteado:", randomMapa);
+function onloadEsconder() {
+  document.getElementById("pontuacao").style.display = "none";
+  document.getElementById("jogo").style.display = "none";
 }
 
+function iniciarQuiz() {
+  document.getElementById("pontuacao").style.display = "flex";
+  document.getElementById("jogo").style.display = "flex";
+
+  document.getElementById("qtdQuestoes").innerHTML = quantidadeDeQuestoes;
+
+  preencherHTMLcomQuestaoAtual(0);
+
+  btnSubmeter.disabled = false;
+  btnProx.disabled = true;
+  // btnConcluir.disabled = true
+  btnTentarNovamente.disabled = true;
 
 
+   fetch(`/jogo/melhorPontuacao/${id_usuario}`)
+    .then((result) => {
+      if (result.ok) {
+        result.json()
+        .then((res) => {
 
-if (mapaCerto == miniMapa){
+            console.log(res[0])
+            const melhorPonto = document.getElementById("melhorPonto")
 
-  ponto += 100;
+            melhorPonto.innerHTML = res[0].ponto_total;
 
-
-  if (jogoAcabou()){
-  fetch("/ponto/somar",{
-
-    method: "POST"
-    
-  })
+        })
+      } else {
+        console.log("Erro ao pegar a melhor pontuação", result.status);
+      }
+    })
+    .then((json) => {
+      if (json) {
+        document.getElementById("melhorPontuacao").innerHTML =
+          json.melhorPontuacao;
+        console.log("Melhor pontuação atualizada:", json.melhorPontuacao);
+      }
+    })
+    .catch((erro) => {
+      console.log("Erro: Não foi possível pegar a melhor pontuação", erro);
+    });
 }
 
-}
+fetch(`/jogo/top3`)
+  .then((result) =>{
 
+    if(result.ok){
 
+      result.json()
+      .then ((res) =>{
 
-let locations = [];
-let currentImage = null;
-let score = 0;
+        const top1 = document.getElementById("top1")
+        const top2 = document.getElementById("top2")
+        const top3 = document.getElementById("top3")
 
-// const imageEl = document.getElementById("target-image");
-// const mapEl = document.getElementById("map");
-// const scoreEl = document.getElementById("score");
-// const nextBtn = document.getElementById("next");
+        console.table(res);
 
-// fetch("data/locations.json")
-//   .then((res) => res.json())
-//   .then((data) => {
-//     locations = data;
-//     loadNextImage();
-//   });
+        top1.innerHTML = `nome: ${res[0].nome} - pontuação: ${res[0].ponto_total}`;
+        top2.innerHTML = `nome: ${res[1].nome} - pontuação: ${res[1].ponto_total}`;
+        top3.innerHTML = `nome: ${res[2].nome} - pontuação: ${res[2].ponto_total}`;
 
-// function loadNextImage() {
-//   const randomIndex = Math.floor(Math.random() * locations.length);
-//   currentImage = locations[randomIndex];
-//   imageEl.src = `../assets/images/${currentImage.filename}`;
-// }
-
-// mapEl.addEventListener("click", function (e) {
-//   const rect = mapEl.getBoundingClientRect();
-//   const clickX = e.clientX - rect.left;
-//   const clickY = e.clientY - rect.top;
-
-//   const correctX = currentImage.location.x;
-//   const correctY = currentImage.location.y;
-
-//   const distance = Math.sqrt(
-//     Math.pow(clickX - correctX, 2) + Math.pow(clickY - correctY, 2)
-//   );
-//   const maxDistance = Math.sqrt(
-//     Math.pow(rect.width, 2) + Math.pow(rect.height, 2)
-//   );
-//   const distancePercent = (distance / maxDistance) * 100;
-
-//   const earnedPoints = Math.max(0, Math.floor(100 - distancePercent));
-//   score += earnedPoints;
-
-//   scoreEl.textContent = `Pontuação: ${score} (+${earnedPoints})`;
-// });
-
-// nextBtn.addEventListener("click", loadNextImage);
-
-
-
-function jogoAcabou(){
-
-  body.getElementById("hashchange", () =>{
-
-    if (rodadas >= 5){
-
-
+      })
 
     }
 
   })
 
+function preencherHTMLcomQuestaoAtual(index) {
+  habilitarAlternativas(true);
+  const questaoAtual = listaDeQuestoes[index];
+  numeroDaQuestaoAtual = index;
+//   console.log("questaoAtual");
+//   console.log(questaoAtual);
+  document.getElementById("spanNumeroDaQuestaoAtual").innerHTML =
+    Number(index) + 1; // ajustando porque o index começa em 0
+  document.getElementById("spanQuestaoExibida").innerHTML =
+    questaoAtual.pergunta;
+  document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+  document.getElementById("labelOpcaoDois").innerHTML =
+    questaoAtual.alternativaB;
+  document.getElementById("labelOpcaoTres").innerHTML =
+    questaoAtual.alternativaC;
+  document.getElementById("labelOpcaoQuatro").innerHTML =
+    questaoAtual.alternativaD;
+}
+
+function submeter() {
+  const options = document.getElementsByName("option"); // recupera alternativas no html
+
+  let hasChecked = false;
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      hasChecked = true;
+      break;
+    }
+  }
+
+  if (!hasChecked) {
+    alert("Não há alternativas escolhidas. Escolha uma opção.");
+  } else {
+    btnSubmeter.disabled = true;
+    btnProx.disabled = false;
+
+    habilitarAlternativas(false);
+
+    checarResposta();
+  }
+}
+
+function habilitarAlternativas(trueOrFalse) {
+  let opcaoEscolhida = trueOrFalse ? false : true;
+
+  primeiraOpcao.disabled = opcaoEscolhida;
+  segundaOpcao.disabled = opcaoEscolhida;
+  terceiraOpcao.disabled = opcaoEscolhida;
+  quartaOpcao.disabled = opcaoEscolhida;
+}
+
+function avancar() {
+  btnProx.disabled = true;
+  btnSubmeter.disabled = false;
+
+  desmarcarRadioButtons();
+
+  if (numeroDaQuestaoAtual < listaDeQuestoes.length) {
+    preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual);
+  } else {
+    finalizarJogo();
+  }
+  limparCoresBackgroundOpcoes();
+}
+
+function tentarNovamente() {
+  // atualiza a página
+  window.location.reload();
+}
+
+function checarResposta() {
+  const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual]; // questão atual
+  const respostaQuestaoAtual = questaoAtual.alternativaCorreta; // qual é a resposta correta da questão atual
+
+  const options = document.getElementsByName("option"); // recupera alternativas no html
+
+  let alternativaCorreta = null; // variável para armazenar a alternativa correta
+
+  options.forEach((option) => {
+    if (option.value === respostaQuestaoAtual) {
+      console.log(
+        "alternativaCorreta está no componente: " + alternativaCorreta
+      );
+      alternativaCorreta = option.labels[0].id;
+    }
+  });
+
+  // verifica se resposta assinalada é correta
+  options.forEach((option) => {
+    if (option.checked === true && option.value === respostaQuestaoAtual) {
+      document
+        .getElementById(alternativaCorreta)
+        .classList.add("text-success-with-bg");
+      pontuacaoFinal++;
+      certas++;
+      document.getElementById("spanCertas").innerHTML = certas;
+      numeroDaQuestaoAtual++;
+    } else if (option.checked && option.value !== respostaQuestaoAtual) {
+      const wrongLabelId = option.labels[0].id;
+
+      document
+        .getElementById(wrongLabelId)
+        .classList.add("text-danger-with-bg");
+      document
+        .getElementById(alternativaCorreta)
+        .classList.add("text-success-with-bg");
+      tentativaIncorreta++;
+      erradas++;
+      document.getElementById("spanErradas").innerHTML = erradas;
+      numeroDaQuestaoAtual++;
+    }
+  });
+}
+
+function limparCoresBackgroundOpcoes() {
+  const options = document.getElementsByName("option");
+  options.forEach((option) => {
+    document
+      .getElementById(option.labels[0].id)
+      .classList.remove("text-danger-with-bg");
+    document
+      .getElementById(option.labels[0].id)
+      .classList.remove("text-success-with-bg");
+  });
+}
+
+function desmarcarRadioButtons() {
+  const options = document.getElementsByName("option");
+  for (let i = 0; i < options.length; i++) {
+    options[i].checked = false;
+  }
+}
+
+function finalizarJogo() {
+  let textoParaMensagemFinal = null;
+  let classComCoresParaMensagemFinal = null;
+  const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes;
+
+  if (porcentagemFinalDeAcertos <= 0.3) {
+    textoParaMensagemFinal = "Parece que você não estudou...";
+    classComCoresParaMensagemFinal = "text-danger-with-bg";
+  } else if (
+    porcentagemFinalDeAcertos > 0.3 &&
+    porcentagemFinalDeAcertos < 0.9
+  ) {
+    textoParaMensagemFinal = "Pode melhorar na próxima, hein!";
+    classComCoresParaMensagemFinal = "text-warning-with-bg";
+  } else if (porcentagemFinalDeAcertos >= 0.9) {
+    textoParaMensagemFinal = "Uau, parabéns!";
+    classComCoresParaMensagemFinal = "text-success-with-bg";
+  }
+
+  textoParaMensagemFinal +=
+    "<br> Você acertou " +
+    Math.round(porcentagemFinalDeAcertos * 100) +
+    "% das questões.";
+
+    console.log(id_usuario);
+    console.log(pontuacaoFinal);
+
+  fetch("/jogo/pontuacao", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id_usuario, pontuacaoFinal }),
+  })
+    .then((result) => {
+      if (result.ok) {
+        console.log("Pontuação enviada com sucesso!");
+      } else {
+        console.log("Erro ao enviar pontuação", result.status);
+      }
+    })
+    .catch((erro) => {
+      console.log("Erro: Não foi possível enviar a pontuação", erro);
+    });
+
+  document.getElementById("msgFinal").innerHTML = textoParaMensagemFinal;
+  document
+    .getElementById("msgFinal")
+    .classList.add(classComCoresParaMensagemFinal);
+  document.getElementById("spanPontuacaoFinal").innerHTML = pontuacaoFinal;
+
+  document.getElementById("jogo").classList.add("text-new-gray");
+
+  btnProx.disabled = true;
+  btnSubmeter.disabled = true;
+  // btnConcluir.disabled = true
+  btnTentarNovamente.disabled = false;
 }

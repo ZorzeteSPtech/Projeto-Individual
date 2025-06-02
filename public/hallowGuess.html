@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/global.css" />
     <link rel="stylesheet" href="./styles/jogo.css" />
+    <link rel="stylesheet" href="./styles/jogoquiz.css">
 
     <title>HallowGuess</title>
   </head>
@@ -12,32 +13,11 @@
     location.href = "#principal";
   </script>
 
-  <body id="body">
-    <section id="mapa" class="tela">
-      <div class="voltar"><a href="#principal">Voltar</a></div>
-      <div class="map-container" id="mapContainer">
-        <button id="close-btn">Fechar</button>
-        <img
-          src="./assets/img/mapa.svg"
-          alt="Mapa"
-          class="map-image"
-          id="mapImage"
-        />
-      </div>
-
-      <div class="pontuacao">
-        <p id="pontoAtual" class="pontos">0</p>
-        <p id="melhorPonto" class="pontos">0</p>
-      </div>
-
-      <!-- Botão de submit -->
-      <button id="submit-btn" disabled>Submit</button>
-    </section>
-
+  <body id="body" onload="onloadEsconder()">
     <header>
       <nav class="nav">
         <div class="nav-menu">
-          <img src="../assets/img/TeamCherry.png" />
+          <img src="./assets/img/TeamCherry.png" />
 
           <ul class="nav-menu-link">
             <li><a href="./index.html">Home</a></li>
@@ -54,6 +34,68 @@
       </nav>
     </header>
 
+      <section id="mapa" class="tela">
+    <div id="pontuacaoEJogo"></div>
+
+        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+            </div>
+            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                    <span id="spanPontuacaoFinal">***</span>
+                    <span id="melhorPonto">0</span>
+                </span>
+                <span id="msgFinal" class="width-fit-content">***</span>
+            </div>
+        </div>
+
+        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+            <div id="infoQuestao" class="padding-8">
+                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
+                    questões.</span>
+            </div>
+
+            <div id="perguntaDaQuestaoAtual" class="padding-8">
+                <span id="spanQuestaoExibida" class="text-bold"></span>
+            </div>
+
+            <div id="infoAlternativas" class="padding-8">
+                <span><em>Escolha uma opção dentre as abaixo:</em></span>
+            </div>
+
+            <div id="opcoes" class="flex-colunar padding-8">
+                <span>
+                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                </span>
+                <span>
+                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                </span>
+                <span>
+                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                </span>
+                <span>
+                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                </span>
+            </div>
+
+            <div id="botoes" class="flex-colunar padding-8">
+                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
     <h2>HallowGuess</h2>
 
     <main>
@@ -62,17 +104,19 @@
       <div class="container">
         <section id="principal" class="tela">
           <div class="container-botoes">
-            <h3><a href="#mapa">Jogar</a></h3>
+            <h3><a href="#mapa" onclick="iniciarQuiz()">Jogar</a></h3>
             <h3><a href="#ranking">Ranking</a></h3>
           </div>
         </section>
       </div>
 
-      <section id="ranking" class="tela">
+      <section id="ranking" class="tela" onload="pontos()">
         <div class="rankingChart">
           <canvas id="partidas"></canvas>
           <canvas id="partidasJogadas"></canvas>
-        </div>x
+        </div>
+        <div id="top1">Top 1</div>
+        <div id="top2">Top 2</div>
         <div id="top3">Top 3</div>
       </section>
     </main>
@@ -104,64 +148,6 @@
     </footer>
   </body>
 </html>
-
-<script>
-  const mapContainer = document.getElementById("mapContainer");
-  const closeBtn = document.getElementById("close-btn");
-
-
-  
-  // Expandir ao clicar no mini-mapa
-  mapContainer.addEventListener("click", function (event) {
-    // Evita expandir quando clicar no botão de fechar
-    if (event.target === closeBtn) return;
-
-    mapContainer.classList.add("expanded");
-  });
-
-  // Fechar o mapa expandido
-  closeBtn.addEventListener("click", function () {
-    mapContainer.classList.remove("expanded");
-  });
-
-  const mapImage = document.getElementById("mapImage");
-
-  mapImage.addEventListener("click", function (event) {
-    const rect = mapImage.getBoundingClientRect();
-
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    
-    // Adiciona o marcador no local clicado
-    createMarker(x, y);
-  });
-
-  function removeOldMarker() {
-    const oldMarker = mapContainer.querySelector(".marker");
-    if (oldMarker) oldMarker.remove();
-  }
-
-  function createMarker(xPercent, yPercent) {
-    removeOldMarker();
-
-    const marker = document.createElement("div");
-    marker.classList.add("marker");
-    marker.style.left = `${xPercent}%`;
-    marker.style.top = `${yPercent}%`;
-
-    mapContainer.appendChild(marker);
-  }
-
-  mapContainer.addEventListener("click", function (event) {
-    const rect = mapContainer.getBoundingClientRect();
-
-    // Coordenadas relativas ao container (não à imagem!)
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-    createMarker(x, y);
-  });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="./js/jogo.js"></script>

@@ -3,64 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Background Scroll e Hover</title>
+  <title>Transição com Máscara</title>
   <style>
-    body {
+    body, html {
       margin: 0;
-      height: 400vh; /* Conteúdo alto para scroll */
-      transition: background-image 1s ease-in-out;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      padding: 0;
+      overflow-x: hidden;
     }
 
-    .hover-area {
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+      transition: background-image 0.5s ease;
+    }
+
+    .mask {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px 40px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-      cursor: pointer;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: black;
       z-index: 999;
+      transition: left 0.8s ease;
+    }
+
+    .mask.active {
+      left: 0;
+    }
+
+    .nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .nav a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      background-color: rgba(0,0,0,0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-
-  <div class="hover-area">Passe o mouse aqui</div>
+  <div class="container" id="mainContainer">
+    <div class="mask" id="mask"></div>
+    <div class="nav">
+      <a href="#" onclick="changeBackground('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0')">Imagem 1</a>
+      <a href="#" onclick="changeBackground('https://images.unsplash.com/photo-1519125323398-675f0ddb6308')">Imagem 2</a>
+    </div>
+  </div>
 
   <script>
-    const body = document.body;
+    function changeBackground(newImage) {
+      const mask = document.getElementById('mask');
+      const container = document.getElementById('mainContainer');
 
-    // Troca o background baseado na posição de scroll
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY;
+      // Ativa a máscara
+      mask.classList.add('active');
 
-      if (scrollPos < 300) {
-        body.style.backgroundImage = "url('https://picsum.photos/seed/1/1600/900')";
-      } else if (scrollPos < 600) {
-        body.style.backgroundImage = "url('https://picsum.photos/seed/2/1600/900')";
-      } else if (scrollPos < 900) {
-        body.style.backgroundImage = "url('https://picsum.photos/seed/3/1600/900')";
-      } else {
-        body.style.backgroundImage = "url('https://picsum.photos/seed/4/1600/900')";
-      }
-    });
+      // Espera o tempo da transição da máscara, depois troca o background
+      setTimeout(() => {
+        container.style.backgroundImage = `url(${newImage})`;
 
-    // Troca o background ao passar o mouse sobre o botão
-    const hoverArea = document.querySelector('.hover-area');
-    hoverArea.addEventListener('mouseenter', () => {
-      body.style.backgroundImage = "url('https://picsum.photos/seed/hover/1600/900')";
-    });
-    hoverArea.addEventListener('mouseleave', () => {
-      // Retorna o background ao baseado no scroll
-      window.dispatchEvent(new Event('scroll'));
-    });
-
-    // Inicializa o background ao carregar a página
-    window.dispatchEvent(new Event('scroll'));
+        // Remove a máscara após um tempo para voltar a interagir
+        setTimeout(() => {
+          mask.classList.remove('active');
+        }, 800);
+      }, 400);
+    }
   </script>
 </body>
 </html>

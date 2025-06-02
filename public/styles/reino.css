@@ -57,20 +57,31 @@ h2{
 
 }
 
-main img{
-  max-width: 50%;
-  display: block;
-  margin: 20px;
+main p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  margin: 1.5rem 18rem;
+  background-color: #6B707A;
+  box-shadow: 4px 4px 10px #3b414b;
+  border-radius: 20px;
+  font-family: "Zain", sans-serif;
+  font-size: 1.5rem;
+  line-height: 110%;
+}
 
+main img{
+
+  width: 18rem;
   box-shadow: 10px 10px 8px #090919;
-  border: #607db465 6px solid;
+  border: #51586565 6px solid;
   border-radius: 20px;
 }
 
 .sumario img{
 
   box-shadow: 10px 10px 8px #090919;
-  border: #607db465 6px solid;
+  border: #51586565 6px solid;
   border-radius: 20px;
-
 }

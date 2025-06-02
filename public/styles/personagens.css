@@ -1,68 +1,102 @@
-h2{
+h2 {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+  font-size: 5rem;
+  font-weight: 100;
+}
 
-    display: flex;
-    justify-content: center;
-    margin: 5rem;
-    font-size: 5rem;
-    font-weight: 100;
+.principal-protagonistas {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 7rem;
+}
+
+.principal-protagonistas > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.principal-importantes {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7rem;
+  gap: 5rem;
+}
+
+.principal-importantes > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  h3 {
+    width: 5rem;
+    text-align: center;
+  }
+
+  p {
+    width: 50%;
+  }
+}
+
+.principal-sonhadores {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 7rem;
 
 }
 
-.principal-protagonistas{
+.principal-sonhadores p {
+  margin: 1rem;
+}
 
-    display: flex;
+.principal-radiancia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.principal-radiancia img{
+
+  width: 60rem;
 
 }
 
+main img{
 
-.principal-importantes{
-
-    display: flex;
-    flex-direction: column;
-
-}
-
-
-.importantes-rei{
-
-    display: flex;
-
-}
-
-.importantes-hollow{
-
-    display: flex;
-
-}
-
-.principal-sonhadores{
-
-    display: flex;
-    justify-content: center;
-
-}
-
-
-.principal-sonhadores p{
-
-    margin: 1rem;
-
-}
-
-.principal-radiancia{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-body img, #map {
-  max-width: 50%;
-  display: block;
-  margin: 20px;
-
+  width: 18rem;
   box-shadow: 10px 10px 8px #090919;
-  border: #607db465 6px solid;
+  border: #51586565 6px solid;
   border-radius: 20px;
+}
+
+.importantes-rei,
+.importantes-hollow {
+  display: flex;
+  flex-direction: column;
+}
+
+main p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  background-color: #6B707A;
+  box-shadow: 4px 4px 10px #3b414b;
+  border-radius: 20px;
+  font-family: "Zain", sans-serif;
+  font-size: 1.5rem;
+  line-height: 110%;
+}
+
+.border{
+
+  border: #494949 6px solid;
+  box-shadow: 0 0 10px #515865;
+  border-radius: 20px;
+  padding: 5rem;
+
 }
