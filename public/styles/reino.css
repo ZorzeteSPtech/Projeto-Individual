@@ -1,60 +1,51 @@
-.sumario{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+.main {
+  width: 95vw;
+  margin: 0 auto;
 }
 
-.sumario h2{
-
-    display: flex;
-    justify-content: center;
-    margin: 5rem;
-    font-size: 5rem;
-    font-weight: 100;
-
+.sumario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.sumario img{
-
-    width: 65%;
-    margin-bottom: 10rem;
-    
+.sumario h2 {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+  font-size: 5rem;
+  font-weight: 100;
 }
 
-.reino-card{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+.sumario img {
+  width: 65%;
+  margin-bottom: 10rem;
 }
 
-.reino-card img{
-
-    width: 35%;
-    margin: 20px;
-
+.reino-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-abaixo{
-
-    display: flex;
-    justify-content: center;
-
+.reino-card img {
+  width: 35%;
+  margin: 20px;
 }
 
-h2{
+.card-abaixo {
+  display: flex;
+  justify-content: center;
+}
 
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
-    font-size: 3rem;
-
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+  font-size: 3rem;
 }
 
 main p {
@@ -62,8 +53,8 @@ main p {
   align-items: center;
   justify-content: center;
   padding: 1.5rem 3rem;
-  margin: 1.5rem 18rem;
-  background-color: #6B707A;
+  margin: 1.5rem 10rem;
+  background-color: #6b707a;
   box-shadow: 4px 4px 10px #3b414b;
   border-radius: 20px;
   font-family: "Zain", sans-serif;
@@ -71,16 +62,14 @@ main p {
   line-height: 110%;
 }
 
-main img{
-
-  width: 18rem;
+main img {
+  width: 20rem;
   box-shadow: 10px 10px 8px #090919;
   border: #51586565 6px solid;
   border-radius: 20px;
 }
 
-.sumario img{
-
+.sumario img {
   box-shadow: 10px 10px 8px #090919;
   border: #51586565 6px solid;
   border-radius: 20px;

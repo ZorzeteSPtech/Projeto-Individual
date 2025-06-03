@@ -3,7 +3,7 @@ main {
     display: flex;
     justify-self: center;
 
-    background-image: url("https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg=");
+    background-image: url("../assets/img/fundoJogo.gif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -103,7 +103,7 @@ a {
     height: 100%;
     top: 0;
     left: 0;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 25px;
     /* background-position: center;

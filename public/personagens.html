@@ -70,8 +70,10 @@
 
         <div class="principal-importantes border">
           <div class="importantes-rei">
-            <h3>Rei Pálido</h3>
-            <img src="./assets/img/pale-king.png" alt="Imagem" />
+            <div class="alinhamento">
+              <h3>Rei Pálido</h3>
+              <img src="./assets/img/pale-king.png" alt="Imagem" />
+            </div>
             <p>
               Durante muitos anos, o reino de Hallownest era lar apenas de
               insetos violentos e pura selvageria, mas tudo mudou, quando um
@@ -91,8 +93,10 @@
           </div>
 
           <div class="importantes-hollow">
-            <h3>Hollow Knight</h3>
-            <img src="./assets/img/hollow-knight.png" alt="Imagem" />
+            <div class="alinhamento">
+              <h3>Hollow Knight</h3>
+              <img src="./assets/img/hollow-knight.png" alt="Imagem" />
+            </div>
             <p>
               O primeiro Receptáculo Vazio que conseguiu sair da Bacia Antiga,
               acompanhado do Rei Pálido, seu destino já selado, ele tinha apenas
@@ -181,21 +185,15 @@
 
     <footer>
       <div class="rodape">
-        <ul class="rodape-ajuda">
-          <li><a href="">FAQ</a></li>
-          <li><a href="">Suporte</a></li>
-          <li><a href="">Termos de Uso</a></li>
-        </ul>
-
+        <input type="text" placeholder="Deixe sua ideia aqui..." id="input_texto">
+        <button onclick="perguntar()">Enviar</button>
         <div class="rodape-endereco">
           <p>Adelaide, South Australia.</p>
           <img src="./assets/img/TeamCherry.png" />
-          <addres
-            ><p>
-              TEAMCHERRY @ 2025. Todos os direitos reservados. Desenvolvido por
-              Team Cherry
-            </p></addres
-          >
+          <p>
+            TEAMCHERRY @ 2025. Todos os direitos reservados. Desenvolvido por
+            Matheus Zorzete
+          </p>
         </div>
 
         <ul class="rodape-redes">
@@ -206,5 +204,6 @@
         </ul>
       </div>
     </footer>
+    <script src="./js/global.js"></script>
   </body>
 </html>

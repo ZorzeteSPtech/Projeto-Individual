@@ -1,4 +1,3 @@
-const { response } = require("express");
 const pontuacaoModel = require("../models/jogoModel");
 
 async function pontuacao(req, res) {
@@ -29,8 +28,6 @@ async function pontuacao(req, res) {
 async function melhorPontuacao(req, res) {
   const idUsuario = req.params.id_usuario;
 
-  console.log(idUsuario);
-
   if (!idUsuario) {
     return res.status(400).json({ erro: "idUsuario é obrigatório" });
   }
@@ -59,16 +56,16 @@ function top3(req, res) {
 }
 
 function chart(req, res) {
-  const idUsuario = req.params.id_usuario;
+  const id_usuario = req.params.idUsuario;
 
-  console.log(idUsuario);
+  console.log("Entrei na controller");
 
-  if (!idUsuario) {
-    return res.status(400).json({ erro: "idUsuario é obrigatório" });
+  if (!id_usuario) {
+    return res.status(400).json({ erro: "id_usuario é obrigatório" });
   }
 
   pontuacaoModel
-    .chart(idUsuario)
+    .chart(id_usuario)
     .then((response) => {
       res.json(response);
     })

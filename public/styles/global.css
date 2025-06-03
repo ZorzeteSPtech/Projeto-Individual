@@ -67,11 +67,10 @@ footer {
 
 .rodape {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   color: white;
-  margin: 0px 10px 0px 10px;
-  padding-bottom: 2%;
+  height: 12.5rem;
 }
 
 .rodape a {
@@ -93,3 +92,15 @@ footer {
   justify-self: center;
 }
 
+.rodape input{
+
+  outline: none;
+  width: 20%;
+  height: 80%;
+  font-size: 16px;
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-start;
+  padding: 5px;
+  
+}

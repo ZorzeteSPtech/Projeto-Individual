@@ -118,7 +118,6 @@ function iniciarQuiz() {
         result.json()
         .then((res) => {
 
-            console.log(res[0])
             const melhorPonto = document.getElementById("melhorPonto")
 
             melhorPonto.innerHTML = res[0].ponto_total;
@@ -151,8 +150,6 @@ fetch(`/jogo/top3`)
         const top1 = document.getElementById("top1")
         const top2 = document.getElementById("top2")
         const top3 = document.getElementById("top3")
-
-        console.table(res);
 
         top1.innerHTML = `nome: ${res[0].nome} - pontuação: ${res[0].ponto_total}`;
         top2.innerHTML = `nome: ${res[1].nome} - pontuação: ${res[1].ponto_total}`;

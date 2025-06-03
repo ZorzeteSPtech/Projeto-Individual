@@ -28,10 +28,12 @@ function top3() {
 }
 
 function chart(idUsuario) {
-  var instrucaoSql = `SELECT nome, ponto_total FROM pontuacao 
-	JOIN usuario 
-		ON idUsuario = ${idUsuario} AND idUsuario = fkUsuario
-	ORDER BY ponto_total DESC LIMIT 5;
+  var instrucaoSql = `SELECT u.nome, p.ponto_total 
+FROM pontuacao p
+JOIN usuario u ON p.fkUsuario = u.idUsuario
+WHERE u.idUsuario = ${idUsuario}
+ORDER BY p.idPontuacao DESC
+LIMIT 5;
 `;
 
   return database.executar(instrucaoSql);

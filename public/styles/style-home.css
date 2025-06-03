@@ -57,29 +57,7 @@
   border-radius: 20px;
 }
 
-.personagens {
-  display: flex;
-  flex-direction: column;
-}
 
-.personagens .personagens-imagens {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  margin-bottom: 5rem;
-}
-
-.personagens-imagens .imagens-personagem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.personagens img {
-  max-width: 80%;
-  height: 22rem;
-  display: block;
-}
 
 .comentarios {
   display: flex;
@@ -110,4 +88,89 @@ main p {
   font-family: "Zain", sans-serif;
   font-size: 1.5rem;
   line-height: 110%;
+}
+
+.habilidades{
+
+  min-height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(170, 170, 170);
+  border-radius: 10px;
+
+}
+
+.card{
+
+border-radius: 25px;
+background-color: rgb(68, 68, 83);
+
+}
+
+.image-content,
+.card-content{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+
+}
+
+.image-content{
+
+  position: relative;
+  row-gap: 5px;
+
+}
+
+.card-image
+{
+
+  position: relative;
+  height: 9.3rem;
+  width: 9.3rem;
+
+}
+
+.card-image .card-img{
+
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+.slide-content{
+
+  margin: 0 40px;
+
+}
+
+.name {
+
+  font-size: 3rem;
+  font-weight: 500;
+  color: black;
+
+}
+
+.description{
+
+  font-size: 2rem;
+  color: rgb(221, 218, 218);
+  text-align: center;
+
+}
+
+.overlay{
+
+  position:absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+
 }

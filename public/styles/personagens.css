@@ -6,6 +6,13 @@ h2 {
   font-weight: 100;
 }
 
+main {
+
+  width: 95vw;
+  margin: 0 auto;
+
+}
+
 .principal-protagonistas {
   display: flex;
   gap: 4rem;
@@ -35,7 +42,7 @@ h2 {
     width: 5rem;
     text-align: center;
   }
-
+  
   p {
     width: 50%;
   }
@@ -83,12 +90,12 @@ main p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
   background-color: #6B707A;
   box-shadow: 4px 4px 10px #3b414b;
   border-radius: 20px;
   font-family: "Zain", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2em;
   line-height: 110%;
 }
 
@@ -97,6 +104,15 @@ main p {
   border: #494949 6px solid;
   box-shadow: 0 0 10px #515865;
   border-radius: 20px;
-  padding: 5rem;
+  padding: 3rem;
+
+}
+
+.alinhamento{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
 }

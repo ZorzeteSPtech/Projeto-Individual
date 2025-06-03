@@ -105,38 +105,29 @@
           <img src="./assets/img/sonhadores.png" alt="Sonhadores" />
         </div>
       </section>
-
-      <section class="personagens">
-        <h2 style="display: flex; justify-content: center">Habilidades</h2>
+      <h2 style="display: flex; justify-content: center">Habilidades</h2>
+      <section class="habilidades">
         <div class="slide-container">
           <div class="slide-content">
             <div class="cardwrapper">
               <div class="card">
                 <div class="image-content">
                   <span class="overlay"></span>
-                  
+
                   <div class="card-image">
-                      <img src="./assets/img/slider/vengeful.png" alt="" class="card-img">
+                    <img
+                      src="./assets/img/slider/vengeful.png"
+                      alt=""
+                      class="card-img"
+                    />
                   </div>
+                </div>
+                <div class="card-content">
+                  <h2 class="name">Espirito Vingativo</h2>
+                  <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea obcaecati nisi sit, eligendi ullam debitis id alias, velit sapiente laboriosam dolorem exercitationem molestias a nemo provident repellat. Vitae, tempore natus.</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="comentarios">
-        <h2>Comentários</h2>
-
-        <div class="comentarios-principal">
-          <div class="principal-card">
-            <p>a</p>
-          </div>
-          <div class="principal-card">
-            <p>a</p>
-          </div>
-          <div class="principal-card">
-            <p>a</p>
           </div>
         </div>
       </section>
@@ -144,18 +135,14 @@
 
     <footer>
       <div class="rodape">
-        <ul class="rodape-ajuda">
-          <li><a href="">FAQ</a></li>
-          <li><a href="">Suporte</a></li>
-          <li><a href="">Termos de Uso</a></li>
-        </ul>
-
+        <input type="text" placeholder="Deixe sua ideia aqui..." id="input_texto">
+        <button onclick="perguntar()">Enviar</button>
         <div class="rodape-endereco">
           <p>Adelaide, South Australia.</p>
           <img src="./assets/img/TeamCherry.png" />
           <p>
             TEAMCHERRY @ 2025. Todos os direitos reservados. Desenvolvido por
-            Team Cherry
+            Matheus Zorzete
           </p>
         </div>
 
@@ -167,5 +154,6 @@
         </ul>
       </div>
     </footer>
+    <script src="./js/global.js"></script>
   </body>
 </html>
