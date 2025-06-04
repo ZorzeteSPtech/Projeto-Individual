@@ -26,15 +26,14 @@
           </ul>
 
           <ul class="nav-menu-link">
-            <li><a href="cadastro-login.html#cadastro">Cadastro</a></li>
-            <li><a href="cadastro-login.html#login">Login</a></li>
+            <li><a href="cadastro-login.html#cadastro"></a></li>
+            <li><a href="cadastro-login.html#login"></a></li>
           </ul>
         </div>
       </nav>
     </header>
 
     <section id="mapa" class="tela">
-      <div id="mapa_aleatorio"></div>
       <div class="voltar"><a href="#principal">Voltar</a></div>
       <div class="map-container" id="mapContainer">
         <button id="close-btn">Fechar</button>
@@ -45,7 +44,7 @@
         >
           <image href="assets/img/mapa.png" width="1068" height="695" />
 
-          <a onclick="atribuir_ponto(0)">  
+          <a onclick="atribuir_ponto(0)">
             <polygon
               points="380,88 537,88 541,161 326,162 326,114 380,116"
               class="area-mapa"
@@ -167,13 +166,15 @@
         <section id="principal" class="tela">
           <div class="container-botoes">
             <h3><a href="#mapa" onclick="iniciarJogo()">Jogar</a></h3>
-            <h3><a href="#ranking">Ranking</a></h3>
+            <h3><a href="#ranking" onclick="plotar(), pontos()">Ranking</a></h3>
           </div>
         </section>
       </div>
       <!-- onload="pontos()" -->
       <section id="ranking" class="tela">
-        <a href="./hallowGuess.html#principal" style="color: white;">Voltar para o menu</a>
+        <a href="./hallowGuess.html#principal" style="color: white"
+          >Voltar para o menu</a
+        >
         <div class="rankingChart">
           <canvas id="partidas"></canvas>
         </div>

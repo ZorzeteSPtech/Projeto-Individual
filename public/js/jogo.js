@@ -81,7 +81,7 @@ function iniciarJogo() {
 
 function plotar(){
 
-  pontos()
+  pontos();
   fetch(`/jogo/top3`).then((result) => {
     if (result.ok) {
       result.json().then((res) => {
@@ -104,9 +104,10 @@ function atribuir_ponto(valor_correto) {
   const pontinho = document.getElementById("pontoAtual");
 
   if (cont >= 5) {
-    jogoFinalizado();
     alert(`Jogo finalizado, voce fêz ${ponto} pontos`);
-  }else if (valor_correto == randomMapa) {
+    jogoFinalizado();
+  }
+  if (valor_correto == randomMapa) {
     ponto += 100;
     mapa();
     cont++;
@@ -208,9 +209,8 @@ function jogoFinalizado() {
     .then((result) => {
       if (result.ok) {
         console.log("Pontuação enviada com sucesso!");
-        plotar()
-        pontos()
         cont = 0;
+        plotar();
         window.location = "./hallowGuess.html#ranking";
       } else {
         console.log("Erro ao enviar pontuação", result.status);

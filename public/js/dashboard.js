@@ -1,4 +1,4 @@
-const ctxPartida = document.getElementById("partidas");
+let graficoPartidas = null;
 
 function pontos() {
   console.log("Peguei em");
@@ -7,7 +7,6 @@ function pontos() {
     headers: {
       "Content-Type": "Application/json",
     },
-
   };
 
   var pegar_ponto = [];
@@ -19,11 +18,15 @@ function pontos() {
 
         console.log(json);
 
-        for (let i = json.length; i > 0; i--) {
+        if (graficoPartidas !== null) {
+          graficoPartidas.destroy();
+        }
+
+        for (let i = json.length - 1; i >= 0; i--) {
           pegar_ponto.push(json[i].ponto_total);
         }
 
-        new Chart(pontoTotal, {
+        graficoPartidas = new Chart(pontoTotal, {
           type: "line",
           data: {
             labels: ["1", "2", "3", "4", "5"],
@@ -51,3 +54,5 @@ function pontos() {
       console.log("Erro: não foi possível fazer a requisição", error);
     });
 }
+
+document.addEventListener("DOMContentLoaded", pontos);
