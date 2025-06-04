@@ -2,6 +2,8 @@
   
 function perguntar(){
 
+  validarSessao()
+
   const texto = document.getElementById("input_texto").value;
 
     console.log(texto);
@@ -27,4 +29,18 @@ function perguntar(){
       console.log("Erro: Não foi possível enviar o texto", erro);
     });
 
+}
+
+
+function validarSessao() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    var senha = sessionStorage.SENHA_USUARIO;
+
+    var b_usuario = document.getElementById("b_usuario");
+
+    if (email != null && senha != null) {
+        b_usuario.innerHTML = senha;
+    } else {
+        window.location = "./cadastro-login.html#login";
+    }
 }

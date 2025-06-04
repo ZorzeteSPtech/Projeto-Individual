@@ -18,9 +18,22 @@
   font-weight: 100;
 }
 
-.sumario img {
-  width: 65%;
+.sumario svg {
+  display: block;
   margin-bottom: 10rem;
+}
+
+.area-mapa {
+  fill: transparent;
+  stroke: transparent;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.area-mapa:hover {
+  fill: rgba(255, 0, 0, 0.3); /* vermelho translúcido no hover */
+  stroke: red;
+  stroke-width: 2;
 }
 
 .reino-card {
@@ -63,7 +76,6 @@ main p {
 }
 
 main img {
-  width: 20rem;
   box-shadow: 10px 10px 8px #090919;
   border: #51586565 6px solid;
   border-radius: 20px;
@@ -74,3 +86,4 @@ main img {
   border: #51586565 6px solid;
   border-radius: 20px;
 }
+

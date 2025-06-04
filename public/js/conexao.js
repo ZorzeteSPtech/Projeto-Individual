@@ -150,49 +150,10 @@ function cadastrar() {
   // Aqui você pode adicionar tratamento de erro mais elaborado
 });
 
+}
 
-// function limparSessao() {
-//     sessionStorage.clear();
-//     window.location = "../login.html";
-// }
 
-// carregamento (loading)
-// function aguardar() {
-//     var divAguardar = document.getElementById("div_aguardar");
-//     divAguardar.style.display = "flex";
-// }
-
-// function finalizarAguardar(texto) {
-//     var divAguardar = document.getElementById("div_aguardar");
-//     divAguardar.style.display = "none";
-
-//     var divErrosLogin = document.getElementById("div_erros_login");
-//     if (texto) {
-//         divErrosLogin.style.display = "flex";
-//         divErrosLogin.innerHTML = texto;
-//     }
-// }
-
-// Listando empresas cadastradas
-// function listar() {
-//   fetch("/empresas/listar", {
-//     method: "GET",
-//   })
-//     .then(function (resposta) {
-//       resposta.json().then((empresas) => {
-//         empresas.forEach((empresa) => {
-//           listaEmpresasCadastradas.push(empresa);
-
-//           console.log("listaEmpresasCadastradas");
-//           console.log(listaEmpresasCadastradas[0].codigo_ativacao);
-//         });
-//       });
-//     })
-//     .catch(function (resposta) {
-//       console.log(`#ERRO: ${resposta}`);
-//     });
-// }
-
-// function sumirMensagem() {
-//   cardErro.style.display = "none";
+function limparSessao() {
+    sessionStorage.clear();
+    window.location = "../login.html";
 }
