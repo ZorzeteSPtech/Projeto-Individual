@@ -1,0 +1,49 @@
+main{
+
+    display: flex;
+    gap: 2rem;
+
+}
+
+.eu{
+
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+
+}
+
+.eu img{
+
+    border-radius: 50%;
+    width: 15rem;
+    border: 3px solid rgb(61, 66, 87);
+
+}
+
+.texto{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+
+}
+
+.valores{
+
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+}
+
+.valores-curiosidade, 
+.valores-determinação, 
+.valores-empatia{
+
+    gap: 2rem;
+    width: 22rem;
+
+}

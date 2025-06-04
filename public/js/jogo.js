@@ -1,8 +1,3 @@
-function onloadEsconder() {
-  document.getElementById("pontuacao").style.display = "none";
-  document.getElementById("jogo").style.display = "none";
-}
-
 const listaDeQuestoes = [
   {
     pergunta: "Que lugar é esse no fundo?",

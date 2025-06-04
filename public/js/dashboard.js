@@ -1,9 +1,9 @@
 const ctxPartida = document.getElementById("partidas");
 const ctxJogadas = document.getElementById("partidasJogadas");
 
-const idUsuario = sessionStorage.getItem("ID_USUARIO");
 
 function pontos() {
+  console.log("Peguei em");
   const header = {
     method: "POST",
     headers: {
@@ -13,10 +13,19 @@ function pontos() {
     //   id_usuario
     // }),
   };
+
+  var pegar_ponto = [];
+
   fetch(`jogo/chart/${idUsuario}`)
     .then((result) => {
       result.json().then((json) => {
         const pontoTotal = document.getElementById(`partidas`).getContext("2d");
+
+        console.log(json);
+
+        for (let i = 0; i < json.length; i++) {
+          pegar_ponto.push(json[i].ponto_total);
+        }
 
         new Chart(pontoTotal, {
           type: "line",
@@ -25,13 +34,7 @@ function pontos() {
             datasets: [
               {
                 label: `Pontuaçãp total`,
-                data: [
-                  json[4].ponto_total,
-                  json[3].ponto_total,
-                  json[2].ponto_total,
-                  json[1].ponto_total,
-                  json[0].ponto_total,
-                ],
+                data: pegar_ponto,
                 borderWidth: 1,
               },
             ],

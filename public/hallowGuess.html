@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/global.css" />
     <link rel="stylesheet" href="./styles/jogo.css" />
-    <link rel="stylesheet" href="./styles/jogoquiz.css">
+    <link rel="stylesheet" href="./styles/jogoquiz.css" />
 
     <title>HallowGuess</title>
   </head>
@@ -32,68 +32,115 @@
           </ul>
         </div>
       </nav>
-    </header>+
+    </header>
+    +
 
-      <section id="mapa" class="tela">
-    <div id="pontuacaoEJogo"></div>
+    <section id="mapa" class="tela">
+      <div id="pontuacaoEJogo"></div>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-            </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                    <span id="melhorPonto">0</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
-            </div>
+      <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+        <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+          <span class="width-fit-content"
+            >Quantidade de acertos: <span id="spanCertas"></span
+          ></span>
+          <span class="width-fit-content"
+            >Quantidade de erros: <span id="spanErradas"></span
+          ></span>
+        </div>
+        <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+          <span id="pontuacaoFinal" class="width-fit-content"
+            >Pontuação Final:
+            <span id="spanPontuacaoFinal">***</span>
+            <span id="melhorPonto">0</span>
+          </span>
+          <span id="msgFinal" class="width-fit-content">***</span>
+        </div>
+      </div>
+
+      <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <div id="infoQuestao" class="padding-8">
+          <span
+            >Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de
+            <span id="qtdQuestoes"></span> questões.</span
+          >
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
-            <div id="infoQuestao" class="padding-8">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
-            </div>
-
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
-
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
-
-            <div id="opcoes" class="flex-colunar padding-8">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
-            </div>
-
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-            </div>
-
+        <div id="perguntaDaQuestaoAtual" class="padding-8">
+          <span id="spanQuestaoExibida" class="text-bold"></span>
         </div>
-    </div>
+
+        <div id="infoAlternativas" class="padding-8">
+          <span><em>Escolha uma opção dentre as abaixo:</em></span>
+        </div>
+
+        <div id="opcoes" class="flex-colunar padding-8">
+          <span>
+            <input
+              type="radio"
+              id="primeiraOpcao"
+              name="option"
+              class="radio"
+              value="alternativaA"
+            />
+            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+          </span>
+          <span>
+            <input
+              type="radio"
+              id="segundaOpcao"
+              name="option"
+              class="radio"
+              value="alternativaB"
+            />
+            <label
+              for="segundaOpcao"
+              class="option"
+              id="labelOpcaoDois"
+            ></label>
+          </span>
+          <span>
+            <input
+              type="radio"
+              id="terceiraOpcao"
+              name="option"
+              class="radio"
+              value="alternativaC"
+            />
+            <label
+              for="terceiraOpcao"
+              class="option"
+              id="labelOpcaoTres"
+            ></label>
+          </span>
+          <span>
+            <input
+              type="radio"
+              id="quartaOpcao"
+              name="option"
+              class="radio"
+              value="alternativaD"
+            />
+            <label
+              for="quartaOpcao"
+              class="option"
+              id="labelOpcaoQuatro"
+            ></label>
+          </span>
+        </div>
+
+        <div id="botoes" class="flex-colunar padding-8">
+          <button onclick="submeter()" id="btnSubmeter">
+            Submeter resposta
+          </button>
+          <button onclick="avancar()" id="btnProx" disabled>
+            Avançar para próxima questão
+          </button>
+          <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+          <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>
+            Tentar novamente
+          </button>
+        </div>
+      </div>
     </section>
 
     <h2>HallowGuess</h2>
@@ -123,7 +170,11 @@
 
     <footer>
       <div class="rodape">
-        <input type="text" placeholder="Deixe sua ideia aqui..." id="input_texto">
+        <input
+          type="text"
+          placeholder="Deixe sua ideia aqui..."
+          id="input_texto"
+        />
         <button onclick="perguntar()">Enviar</button>
         <div class="rodape-endereco">
           <p>Adelaide, South Australia.</p>
@@ -143,9 +194,8 @@
       </div>
     </footer>
     <script src="./js/global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/jogo.js"></script>
+    <script src="./js/dashboard.js"></script>
   </body>
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="./js/jogo.js"></script>
-<script src="./js/dashboard.js"></script>

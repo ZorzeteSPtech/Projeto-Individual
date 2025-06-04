@@ -62,19 +62,6 @@ function entrar() {
   return false;
 }
 
-function validarSessao() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.SENHA_USUARIO;
-
-    var b_usuario = document.getElementById("b_usuario");
-
-    if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
-    } else {
-        window.location = "../login.html";
-    }
-}
-
 // function sumirMensagem() {
 //   cardErro.style.display = "none";
 // }
@@ -152,8 +139,3 @@ function cadastrar() {
 
 }
 
-
-function limparSessao() {
-    sessionStorage.clear();
-    window.location = "../login.html";
-}
