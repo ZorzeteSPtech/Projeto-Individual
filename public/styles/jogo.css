@@ -12,6 +12,23 @@ main {
 
 }
 
+svg {
+  display: block;
+}
+
+section.tela svg{
+  fill: transparent;
+  stroke: transparent;
+  transition: 0.3s ease-in-out;
+}
+
+section.tela svg a:hover {
+  fill: rgba(255, 0, 0, 0.3);
+  stroke: red;
+  stroke-width: 2;
+  cursor: pointer;
+}
+
 h2 {
 
     display: flex;
@@ -181,27 +198,6 @@ a {
     transform: translate(-50%, -50%);
     z-index: 30;
     pointer-events: none;
-}
-
-#submit-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    opacity: 0.5;
-    cursor: not-allowed;
-    transition: 0.3s;
-}
-
-#submit-btn.active {
-    background-color: rgb(9, 68, 146);
-    cursor: pointer;
-    opacity: 1;
 }
 
 #close-btn {

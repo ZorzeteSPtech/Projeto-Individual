@@ -1,11 +1,11 @@
 var database = require("../database/config");
 
-function inserirPonto(idUsuario, pontos) {
+function inserirPonto(id_usuario, pontos) {
   console.log(
     "ACESSEI O PONTOS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente."
   );
 
-  var instrucaoSql = `INSERT INTO pontuacao (ponto_total, fkUsuario) VALUES (${pontos}, ${idUsuario})`;
+  var instrucaoSql = `INSERT INTO pontuacao (ponto_total, fkUsuario) VALUES (${pontos}, ${id_usuario})`;
 
   return database.executar(instrucaoSql);
 }

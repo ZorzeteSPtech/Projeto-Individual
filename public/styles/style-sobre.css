@@ -1,49 +1,66 @@
-main{
-
-    display: flex;
-    gap: 2rem;
-
+main {
+  background: linear-gradient(to bottom right, #22252fa6, #989a9eb2);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  margin: 0 auto;
 }
 
-.eu{
-
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    flex-direction: column;
-
+.eu {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  flex-direction: column;
 }
 
-.eu img{
-
-    border-radius: 50%;
-    width: 15rem;
-    border: 3px solid rgb(61, 66, 87);
-
+.eu img {
+  border-radius: 50%;
+  width: 15rem;
+  border: 3px solid rgb(61, 66, 87);
 }
 
-.texto{
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 4rem;
-
+.texto {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.valores{
-
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-
+.valores {
+  display: flex;
+  gap: 2rem;
+  height: 35rem;
 }
 
-.valores-curiosidade, 
-.valores-determinação, 
-.valores-empatia{
+.valores > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 10px 10px 8px #090919;
+  border: #51586565 6px solid;
+  padding: 2rem 0;
+  border-radius: 20px;
+  gap: 2rem;
+  width: 33.3%;
+  text-align: center;
 
-    gap: 2rem;
-    width: 22rem;
+  i {
+    font-size: 2.5rem;
+  }
 
+  p {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  &:nth-child(1) i {
+    color: rgb(202, 202, 38);
+  }
+  &:nth-child(2) i {
+    color: rgb(196, 37, 37);
+  }
+  &:nth-child(3) i {
+    color: rgb(38, 109, 202);
+  }
 }

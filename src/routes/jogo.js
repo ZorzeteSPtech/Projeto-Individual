@@ -7,7 +7,7 @@ router.post("/pontuacao", function (req, res) {
   jogoController.pontuacao(req, res);
 });
 
-router.get("/melhorPontuacao/:id_usuario", function (req, res) {
+router.get("/melhorPontuacao/:idUsuario", function (req, res) {
   jogoController.melhorPontuacao(req, res);
 });
 

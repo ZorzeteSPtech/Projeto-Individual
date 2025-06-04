@@ -174,3 +174,18 @@ background-color: rgb(68, 68, 83);
   width: 100%;
 
 }
+
+.resumo-diferente{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.resumo-diferente p{
+
+  width: 70%;
+
+}

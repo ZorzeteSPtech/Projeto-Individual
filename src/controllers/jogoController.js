@@ -1,39 +1,35 @@
 const pontuacaoModel = require("../models/jogoModel");
 
-async function pontuacao(req, res) {
-  const pontos = req.body.pontuacaoFinal;
-  const idUsuario = req.body.id_usuario;
+function pontuacao(req, res) {
+  const pontos = req.body.ponto;
+  const id_usuario = req.body.idUsuario;
 
-  if (!idUsuario || !pontos) {
+  if (!id_usuario || pontos < 0) {
     return res
       .status(400)
-      .json({ erro: "idUsuario e pontos são obrigatórios" });
+      .json({ erro: "id_usuario e pontos são obrigatórios" });
   }
 
   try {
-    await pontuacaoModel.inserirPonto(idUsuario, pontos);
-    await pontuacaoModel.melhorPontuacao(idUsuario, pontos);
-    const resultado = await pontuacaoModel.contarPartida(idUsuario);
-    const totalPartidas = resultado[0].totalPartidas;
+    pontuacaoModel.inserirPonto(id_usuario, pontos);
 
     res.status(200).json({
       mensagem: "Pontuação salva com sucesso!",
-      totalPartidas: totalPartidas,
     });
   } catch (erro) {
     res.status(500).json(erro);
   }
 }
 
-async function melhorPontuacao(req, res) {
-  const idUsuario = req.params.id_usuario;
+function melhorPontuacao(req, res) {
+  const id_usuario = req.params.idUsuario;
 
-  if (!idUsuario) {
-    return res.status(400).json({ erro: "idUsuario é obrigatório" });
+  if (!id_usuario) {
+    return res.status(400).json({ erro: "id_usuario é obrigatório" });
   }
 
   pontuacaoModel
-    .melhorPontuacao(idUsuario)
+    .melhorPontuacao(id_usuario)
     .then((response) => {
       res.json(response);
     })

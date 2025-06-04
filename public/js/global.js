@@ -34,12 +34,10 @@ function perguntar(){
 
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
-    var id_usuario_validado = sessionStorage.ID_USUARIO;
+    var id_usuario = sessionStorage.ID_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
-
-    if (email != null && id_usuario_validado != null) {
-        b_usuario.innerHTML = id_usuario_validado;
+    if (email != null && id_usuario != null) {
+        console.log(id_usuario);
     } else {
         window.location = "./cadastro-login.html#login";
     }
